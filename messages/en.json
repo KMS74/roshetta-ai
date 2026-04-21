@@ -1,0 +1,71 @@
+{
+  "Common": {
+    "title": "Roshetta.AI",
+    "subtitle": "Your Intelligent Pharmacy Assistant",
+    "logout": "Logout",
+    "login": "Login",
+    "cta": "Get Started",
+    "backToHome": "Back to Home",
+    "brandName": "Roshetta.AI"
+  },
+  "Navigation": {
+    "home": "Home",
+    "features": "Features",
+    "howItWorks": "How it Works",
+    "about": "About",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "contact": "Contact"
+  },
+  "Scanner": {
+    "heroTitle": "Decode Any Prescription Instantly",
+    "heroSubtitle": "Using advanced AI to extract medications, dosages, and safety warnings from handwritten prescriptions.",
+    "uploadTitle": "Snap or Upload Prescription",
+    "uploadSubtitle": "Supports JPG, PNG (Max 10MB)",
+    "analyzeButton": "Analyze Prescription",
+    "analyzing": "AI is reading prescription...",
+    "secureStorage": "Secure Processing",
+    "secureStorageDesc": "Your data is processed anonymously and never stored.",
+    "aiPowered": "Gemini 2.0 Engine",
+    "aiPoweredDesc": "State-of-the-art visual reasoning for medical handwriting."
+  },
+  "Insights": {
+    "medications": "Extracted Medications",
+    "interactions": "Drug Interactions",
+    "dosageInstructions": "Dosage Instructions",
+    "typicalUse": "Typical Use",
+    "safetyTip": "AI Pharmacist Tip",
+    "interactionTitle": "Drug Interaction Identified",
+    "severityHigh": "Emergency Warning",
+    "severityMedium": "Precaution Required",
+    "severityLow": "Minor Note",
+    "noInteractions": "No significant interactions detected between these medications.",
+    "reportDisclaimer": "This analysis is for informational purposes only. Consult a licensed pharmacist before taking any medication.",
+    "downloadPDF": "Download Medical Report",
+    "exportCalendar": "Add to Calendar Reminders"
+  },
+  "Report": {
+    "title": "Roshetta.AI Report",
+    "subtitle": "Your Intelligent Pharmacy Assistant - Decoding the prescription",
+    "extractedMeds": "Extracted Medications",
+    "drugInteractions": "Drug Interactions",
+    "note": "Note",
+    "alert": "Alert",
+    "severityHigh": "High Risk",
+    "severityMedium": "Medium Risk",
+    "severityLow": "Low Risk",
+    "interactionDetected": "Interaction identified",
+    "disclaimerTitle": "Medical Accuracy Disclaimer"
+  },
+  "Loading": {
+    "parsingImage": "Optimizing image...",
+    "extractingText": "Extracting medical data...",
+    "checkingSafety": "Checking drug-to-drug interactions...",
+    "generatingInsights": "Preparing your results..."
+  },
+  "Errors": {
+    "noImage": "Please upload a prescription image first.",
+    "analysisFailed": "We couldn't read this prescription. Please ensure the image is clear and try again.",
+    "exportFailed": "Failed to generate export. Please try again."
+  }
+}

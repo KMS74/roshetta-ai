@@ -1,0 +1,6 @@
+{
+  "name": "Roshetta.AI (روشتة.ذكاء)",
+  "description": "The AI Prescription Expert - Your advanced digital pharmacist for decoding handwritten prescriptions instantly.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["AI OCR", "Pharma Intelligence", "Patient Safety"]
+}

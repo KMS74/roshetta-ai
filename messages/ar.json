@@ -1,0 +1,71 @@
+{
+  "Common": {
+    "title": "روشتة.ذكاء",
+    "subtitle": "مساعدك الصيدلي الذكي",
+    "logout": "تسجيل الخروج",
+    "login": "تسجيل الدخول",
+    "cta": "ابدأ الآن",
+    "backToHome": "العودة للرئيسية",
+    "brandName": "Roshetta.AI"
+  },
+  "Navigation": {
+    "home": "الرئيسية",
+    "features": "المميزات",
+    "howItWorks": "كيف يعمل؟",
+    "about": "عن التطبيق",
+    "privacy": "الخصوصية",
+    "terms": "الشروط",
+    "contact": "اتصل بنا"
+  },
+  "Scanner": {
+    "heroTitle": "فك شفرة أي روشتة فوراً",
+    "heroSubtitle": "استخدام الذكاء الاصطناعي لاستخراج الأدوية والجرعات وتحذيرات السلامة من الروشتات المكتوبة بخط اليد.",
+    "uploadTitle": "التقط صورة أو ارفع روشتة",
+    "uploadSubtitle": "يدعم JPG, PNG (بحد أقصى 10 ميجا)",
+    "analyzeButton": "تحليل الروشتة",
+    "analyzing": "الذكاء الاصطناعي يقرأ الروشتة...",
+    "secureStorage": "معالجة آمنة",
+    "secureStorageDesc": "يتم معالجة بياناتك بشكل مجهول ولا يتم تخزينها أبداً.",
+    "aiPowered": "محرك Gemini 2.0",
+    "aiPoweredDesc": "أحدث تقنيات الرؤية الحاسوبية لخطوط اليد الطبية."
+  },
+  "Insights": {
+    "medications": "الأدوية المستخرجة",
+    "interactions": "التفاعلات الدوائية",
+    "dosageInstructions": "تعليمات الجرعة",
+    "typicalUse": "استخدام الدواء",
+    "safetyTip": "نصيحة الصيدلي الذكي",
+    "interactionTitle": "تم تحديد تفاعل دوائي",
+    "severityHigh": "تحذير طوارئ",
+    "severityMedium": "يلزم الحذر",
+    "severityLow": "ملاحظة بسيطة",
+    "noInteractions": "لم يتم العثور على تفاعلات خطيرة بين هذه الأدوية.",
+    "reportDisclaimer": "تحذير: هذا التحليل هو تقدير باستخدام الذكاء الاصطناعي فقط. يجب استشارة صيدلي مرخص قبل تناول أي دواء.",
+    "downloadPDF": "تحميل التقرير الطبي",
+    "exportCalendar": "إضافة تذكير للتقويم"
+  },
+  "Report": {
+    "title": "تقرير Roshetta.AI",
+    "subtitle": "مساعدك الصيدلي الذكي - فك شفرة الروشتة",
+    "extractedMeds": "الأدوية المستخرجة",
+    "drugInteractions": "التفاعلات الدوائية",
+    "note": "ملاحظة",
+    "alert": "تنبيه",
+    "severityHigh": "عالي الخطورة",
+    "severityMedium": "متوسط الخطورة",
+    "severityLow": "بسيط",
+    "interactionDetected": "تفاعل تم رصده",
+    "disclaimerTitle": "إخلاء مسؤولية الدقة الطبية"
+  },
+  "Loading": {
+    "parsingImage": "تحسين جودة الصورة...",
+    "extractingText": "استخراج البيانات الطبية...",
+    "checkingSafety": "التحقق من التفاعلات الدوائية...",
+    "generatingInsights": "تحضير النتائج النهائية..."
+  },
+  "Errors": {
+    "noImage": "يرجى رفع صورة الروشتة أولاً.",
+    "analysisFailed": "تعذر قراءة هذه الروشتة. يرجى التأكد من وضوح الصورة والمحاولة مرة أخرى.",
+    "exportFailed": "فشل في إنشاء الملف. يرجى المحاولة مرة أخرى."
+  }
+}

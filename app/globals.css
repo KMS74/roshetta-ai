@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@theme {
+  --font-google-sans: var(--font-google-sans)
+  --font-arabic: var(--font-arabic)
+  
+  /* Map default sans to Google Sans for English */
+  --font-sans: var(--font-google-sans);
+
+  /* Roshetta.AI Brand Colors */
+  --color-brand-teal: #0D4C59;
+  --color-brand-teal-light: #166475;
+  --color-brand-green: #10B981;
+  --color-brand-green-dark: #059669;
+  --color-brand-coral: #FF7E62;
+  --color-brand-coral-light: #FFF1EE;
+  --color-brand-bg: #F8FAFC;
+  --color-brand-dark: #0B3B45;
+
+  /* Custom Animations */
+  @keyframes scan {
+    0% { top: 0%; opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { top: 100%; opacity: 0.8; }
+  }
+  @keyframes pulse-soft {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(0.98); }
+  }
+  --animate-scan: scan 2.5s ease-in-out infinite;
+  --animate-pulse-soft: pulse-soft 3s ease-in-out infinite;
+
+  /* Color Mapping & Hex Fallbacks */
+  --color-blue-50: var(--color-brand-bg);
+  --color-blue-500: var(--color-brand-green);
+  --color-blue-600: var(--color-brand-teal);
+  --color-blue-700: var(--color-brand-teal-light);
+  
+  --color-slate-50: var(--color-brand-bg);
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+
+  --color-emerald-50: #ecfdf5;
+  --color-emerald-100: #d1fae5;
+  --color-emerald-500: #10b981;
+  --color-emerald-600: #059669;
+  --color-emerald-700: #047857;
+
+  --color-amber-50: #fffbeb;
+  --color-amber-100: #fef3c7;
+  --color-amber-200: #fde68a;
+  --color-amber-700: #b45309;
+  --color-amber-800: #92400e;
+
+  --color-red-50: #fef2f2;
+  --color-red-100: #fee2e2;
+  --color-red-200: #fecaca;
+  --color-red-600: #dc2626;
+  --color-red-900: #7f1d1d;
+}
