@@ -26,7 +26,6 @@ export function Header() {
         <nav aria-label={t('Navigation.home')} className="hidden md:flex items-center gap-8">
           <Link href="/" className="text-sm font-bold text-slate-600 hover:text-brand-teal transition-colors">{t('Navigation.home')}</Link>
           <Link href="/about" className="text-sm font-bold text-slate-600 hover:text-brand-teal transition-colors">{t('Navigation.about')}</Link>
-          <Link href="/contact" className="text-sm font-bold text-slate-600 hover:text-brand-teal transition-colors">{t('Navigation.contact')}</Link>
         </nav>
 
         <div className="flex items-center gap-4">

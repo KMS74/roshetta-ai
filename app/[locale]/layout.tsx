@@ -1,32 +1,56 @@
+import type { Viewport } from 'next';
+import { Cairo, Outfit } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
+import { cn } from '@/lib/utils';
+
+const cairo = Cairo({
+  subsets: ['arabic', 'latin'],
+  variable: '--font-family-arabic',
+  display: 'swap',
+});
+
+const outfit = Outfit({
+  subsets: ['latin'],
+  variable: '--font-family-sans',
+  display: 'swap',
+});
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
 
 export default async function LocaleLayout({
   children,
-  params
+  params,
 }: {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
 
-  // Ensure that the incoming `locale` is valid
-  if (!routing.locales.includes(locale as any)) {
+  if (!routing.locales.includes(locale as (typeof routing.locales)[number])) {
     notFound();
   }
 
-  // Providing all messages to the client
-  // side is the easiest way to get started
   const messages = await getMessages();
+  const isArabic = locale === 'ar';
 
   return (
-    <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-      </head>
-      <body className="antialiased">
+    <html
+      lang={locale}
+      dir={isArabic ? 'rtl' : 'ltr'}
+      className={cn(cairo.variable, outfit.variable)}
+    >
+      <body
+        className={cn(
+          'antialiased',
+          isArabic ? 'font-arabic' : 'font-sans'
+        )}
+      >
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>

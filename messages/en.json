@@ -6,7 +6,9 @@
     "login": "Login",
     "cta": "Get Started",
     "backToHome": "Back to Home",
-    "brandName": "Roshetta.AI"
+    "brandName": "Roshetta.AI",
+    "openLanguageMenu": "Open language menu",
+    "closeLanguageMenu": "Close language menu"
   },
   "Navigation": {
     "home": "Home",
@@ -27,7 +29,10 @@
     "secureStorage": "Secure Processing",
     "secureStorageDesc": "Your data is processed anonymously and never stored.",
     "aiPowered": "Gemini 2.0 Engine",
-    "aiPoweredDesc": "State-of-the-art visual reasoning for medical handwriting."
+    "aiPoweredDesc": "State-of-the-art visual reasoning for medical handwriting.",
+    "heroPill": "AI-driven prescription intelligence",
+    "prescriptionImageAlt": "Uploaded prescription image",
+    "removeImage": "Remove image"
   },
   "Insights": {
     "medications": "Extracted Medications",
@@ -42,7 +47,15 @@
     "noInteractions": "No significant interactions detected between these medications.",
     "reportDisclaimer": "This analysis is for informational purposes only. Consult a licensed pharmacist before taking any medication.",
     "downloadPDF": "Download Medical Report",
-    "exportCalendar": "Add to Calendar Reminders"
+    "itemsIdentified": "{count, plural, one {# item identified} other {# items identified}}",
+    "severityDisplayHigh": "High severity",
+    "severityDisplayMedium": "Medium severity",
+    "severityDisplayLow": "Low severity",
+    "resultsEmptyTitle": "Your results will appear here",
+    "resultsEmptyHint": "Upload a clear photo of your prescription, then tap Analyze to extract medications, reminders, and safety information.",
+    "resultsSectionLabel": "Analysis",
+    "remindersHeading": "Reminders",
+    "interactionsLead": "We compare detected medications for potential interactions. Always confirm with a licensed pharmacist before making decisions."
   },
   "Report": {
     "title": "Roshetta.AI Report",
@@ -55,7 +68,10 @@
     "severityMedium": "Medium Risk",
     "severityLow": "Low Risk",
     "interactionDetected": "Interaction identified",
-    "disclaimerTitle": "Medical Accuracy Disclaimer"
+    "disclaimerTitle": "Medical Accuracy Disclaimer",
+    "dateLabel": "Date",
+    "timeLabel": "Time",
+    "footerTagline": "Roshetta.AI · AI-assisted analysis only. Always confirm with a licensed pharmacist or physician."
   },
   "Loading": {
     "parsingImage": "Optimizing image...",
@@ -65,7 +81,9 @@
   },
   "Errors": {
     "noImage": "Please upload a prescription image first.",
+    "fileTooLarge": "This file is too large. Please use an image under 10 MB.",
     "analysisFailed": "We couldn't read this prescription. Please ensure the image is clear and try again.",
-    "exportFailed": "Failed to generate export. Please try again."
+    "exportFailed": "Failed to generate export. Please try again.",
+    "apiKeyMissing": "The Gemini API key is missing. Add NEXT_PUBLIC_GEMINI_API_KEY to your environment."
   }
 }

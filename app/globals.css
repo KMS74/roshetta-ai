@@ -1,16 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  --font-google-sans: var(--font-google-sans)
-  --font-arabic: var(--font-arabic)
-  
-  /* Map default sans to Google Sans for English */
-  --font-sans: var(--font-google-sans);
+  /* Next font injects --font-family-sans / --font-family-arabic on <html> */
+  --font-sans: var(--font-family-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-arabic: var(--font-family-arabic), ui-sans-serif, system-ui, sans-serif;
 
   /* Roshetta.AI Brand Colors */
   --color-brand-teal: #0D4C59;
   --color-brand-teal-light: #166475;
   --color-brand-green: #10B981;
+  --color-brand-green-light: #34d399;
   --color-brand-green-dark: #059669;
   --color-brand-coral: #FF7E62;
   --color-brand-coral-light: #FFF1EE;

@@ -6,7 +6,9 @@
     "login": "تسجيل الدخول",
     "cta": "ابدأ الآن",
     "backToHome": "العودة للرئيسية",
-    "brandName": "Roshetta.AI"
+    "brandName": "Roshetta.AI",
+    "openLanguageMenu": "فتح قائمة اللغة",
+    "closeLanguageMenu": "إغلاق قائمة اللغة"
   },
   "Navigation": {
     "home": "الرئيسية",
@@ -27,7 +29,10 @@
     "secureStorage": "معالجة آمنة",
     "secureStorageDesc": "يتم معالجة بياناتك بشكل مجهول ولا يتم تخزينها أبداً.",
     "aiPowered": "محرك Gemini 2.0",
-    "aiPoweredDesc": "أحدث تقنيات الرؤية الحاسوبية لخطوط اليد الطبية."
+    "aiPoweredDesc": "أحدث تقنيات الرؤية الحاسوبية لخطوط اليد الطبية.",
+    "heroPill": "ذكاء اصطناعي لفهم الروشتات",
+    "prescriptionImageAlt": "صورة الروشتة المرفوعة",
+    "removeImage": "إزالة الصورة"
   },
   "Insights": {
     "medications": "الأدوية المستخرجة",
@@ -42,7 +47,15 @@
     "noInteractions": "لم يتم العثور على تفاعلات خطيرة بين هذه الأدوية.",
     "reportDisclaimer": "تحذير: هذا التحليل هو تقدير باستخدام الذكاء الاصطناعي فقط. يجب استشارة صيدلي مرخص قبل تناول أي دواء.",
     "downloadPDF": "تحميل التقرير الطبي",
-    "exportCalendar": "إضافة تذكير للتقويم"
+    "itemsIdentified": "{count, plural, one {تم التعرف على عنصر واحد} other {تم التعرف على # عناصر}}",
+    "severityDisplayHigh": "خطورة عالية",
+    "severityDisplayMedium": "خطورة متوسطة",
+    "severityDisplayLow": "خطورة منخفضة",
+    "resultsEmptyTitle": "ستظهر النتائج هنا",
+    "resultsEmptyHint": "ارفع صورة واضحة للروشتة، ثم اضغط تحليل لاستخراج الأدوية والتذكيرات ومعلومات السلامة.",
+    "resultsSectionLabel": "التحليل",
+    "remindersHeading": "التذكيرات",
+    "interactionsLead": "نقارن الأدوية المكتشفة بحثًا عن تفاعلات محتملة. يُرجى دائمًا التأكد مع صيدلي مرخّص قبل اتخاذ أي قرار."
   },
   "Report": {
     "title": "تقرير Roshetta.AI",
@@ -55,7 +68,10 @@
     "severityMedium": "متوسط الخطورة",
     "severityLow": "بسيط",
     "interactionDetected": "تفاعل تم رصده",
-    "disclaimerTitle": "إخلاء مسؤولية الدقة الطبية"
+    "disclaimerTitle": "إخلاء مسؤولية الدقة الطبية",
+    "dateLabel": "التاريخ",
+    "timeLabel": "الوقت",
+    "footerTagline": "Roshetta.AI · تحليل بمساعدة الذكاء الاصطناعي فقط. يُرجى دائمًا التأكد مع صيدلي أو طبيب مرخّص."
   },
   "Loading": {
     "parsingImage": "تحسين جودة الصورة...",
@@ -65,7 +81,9 @@
   },
   "Errors": {
     "noImage": "يرجى رفع صورة الروشتة أولاً.",
+    "fileTooLarge": "حجم الملف كبير جدًا. يرجى استخدام صورة أقل من 10 ميجابايت.",
     "analysisFailed": "تعذر قراءة هذه الروشتة. يرجى التأكد من وضوح الصورة والمحاولة مرة أخرى.",
-    "exportFailed": "فشل في إنشاء الملف. يرجى المحاولة مرة أخرى."
+    "exportFailed": "فشل في إنشاء الملف. يرجى المحاولة مرة أخرى.",
+    "apiKeyMissing": "مفتاح Gemini API غير موجود. أضف NEXT_PUBLIC_GEMINI_API_KEY إلى إعدادات البيئة."
   }
 }

@@ -1,22 +1,26 @@
-import type { Metadata } from 'next';
-import { Cairo, Outfit } from 'next/font/google';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
-const cairo = Cairo({
-  subsets: ['arabic', 'latin'],
-  variable: '--font-arabic',
-  display: 'swap',
-});
-
-const outfit = Outfit({
-  subsets: ['latin'],
-  variable: '--font-google-sans',
-  display: 'swap',
-});
+export const viewport: Viewport = {
+  themeColor: '#0D4C59',
+  minimumScale: 1,
+  initialScale: 1,
+  width: 'device-width',
+  userScalable: false,
+};
 
 export const metadata: Metadata = {
   title: 'Roshetta.AI | روشتة.ذكاء',
   description: 'AI Prescription Expert - Advanced digital pharmacist for decoding handwritten prescriptions.',
+  manifest: '/manifest.json',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'Roshetta.AI',
+  },
+  formatDetection: {
+    telephone: false,
+  },
 };
 
 export default function RootLayout({

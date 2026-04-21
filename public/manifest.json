@@ -1,0 +1,17 @@
+{
+  "name": "Roshetta.AI | روشتة.ذكاء",
+  "short_name": "Roshetta",
+  "description": "AI Prescription Expert - Advanced digital pharmacist for decoding handwritten prescriptions.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F8FAFC",
+  "theme_color": "#0D4C59",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
