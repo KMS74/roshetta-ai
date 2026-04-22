@@ -29,7 +29,7 @@
     "analyzing": "AI is reading prescription...",
     "secureStorage": "Secure Processing",
     "secureStorageDesc": "Your data is processed anonymously and never stored.",
-    "aiPowered": "Gemini 2.0 Engine",
+    "aiPowered": "Gemini 3.0 Engine",
     "aiPoweredDesc": "State-of-the-art visual reasoning for medical handwriting.",
     "heroPill": "AI-driven prescription intelligence",
     "prescriptionImageAlt": "Uploaded prescription image",
@@ -87,11 +87,46 @@
     "checkingSafety": "Checking drug-to-drug interactions...",
     "generatingInsights": "Preparing your results..."
   },
+  "History": {
+    "title": "Recent Scans",
+    "item": "item",
+    "items": "items",
+    "itemsCount": "{count, plural, one {# item} other {# items}}",
+    "empty": "No scans yet",
+    "emptyHint": "Your analyzed prescriptions will appear here for easy access.",
+    "untitled": "Prescription scan",
+    "medsCount": "{count, plural, one {# med} other {# meds}}",
+    "justNow": "Just now",
+    "minutesAgo": "{count}m ago",
+    "hoursAgo": "{count}h ago",
+    "daysAgo": "{count}d ago",
+    "delete": "Delete",
+    "clearAll": "Clear All History",
+    "clearConfirm": "Clear all scan history?"
+  },
+  "Feedback": {
+    "question": "Was this analysis helpful?",
+    "yes": "Yes",
+    "no": "No",
+    "commentPrompt": "Any additional feedback? (optional)",
+    "commentPlaceholder": "Tell us how we can improve...",
+    "skip": "Skip",
+    "submit": "Submit",
+    "thanks": "Thank you for your feedback!"
+  },
   "Errors": {
     "noImage": "Please upload a prescription image first.",
     "fileTooLarge": "This file is too large. Please use an image under 10 MB.",
     "analysisFailed": "We couldn't read this prescription. Please ensure the image is clear and try again.",
     "exportFailed": "Failed to generate export. Please try again.",
-    "apiKeyMissing": "The Gemini API key is missing. Add NEXT_PUBLIC_GEMINI_API_KEY to your environment."
+    "apiKeyMissing": "Server configuration error. Please try again later.",
+    "rateLimited": "Too many requests. Please wait a moment and try again.",
+    "networkError": "Network error. Please check your internet connection and try again.",
+    "errorTitle": "Something went wrong",
+    "errorDescription": "An unexpected error occurred. Please try again.",
+    "tryAgain": "Try Again",
+    "goHome": "Go Home",
+    "notFoundTitle": "Page not found",
+    "notFoundDescription": "The page you're looking for doesn't exist or has been moved."
   }
 }

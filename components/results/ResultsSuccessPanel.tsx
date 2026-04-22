@@ -6,6 +6,7 @@ import { DrugInteractionsSection } from './DrugInteractionsSection';
 import { MedicationCard } from './MedicationCard';
 import { ResultsSummaryHeader } from './ResultsSummaryHeader';
 import { ShareActions } from './ShareActions';
+import { FeedbackWidget } from '@/components/FeedbackWidget';
 import { useTranslations } from 'next-intl';
 import { MapPin } from 'lucide-react';
 
@@ -85,6 +86,8 @@ export function ResultsSuccessPanel({
         interactions={result.interactions}
         disclaimer={result.disclaimer}
       />
+
+      <FeedbackWidget scanSummary={result.summary} />
     </motion.div>
   );
 }

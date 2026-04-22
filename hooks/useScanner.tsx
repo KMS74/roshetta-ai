@@ -1,13 +1,23 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import { pdf } from '@react-pdf/renderer';
 import { MedicalReport } from '@/components/MedicalReport';
 import type { AnalysisResult } from '@/lib/types/prescription';
 import { useTranslations, useLocale } from 'next-intl';
-import { ai, ROSHETTA_PROMPT, schema } from '@/lib/gemini';
+import { saveScan, getHistory, deleteScan, clearHistory } from '@/lib/scan-history';
+import type { ScanHistoryEntry } from '@/lib/scan-history';
+import { trackEvent } from '@/lib/analytics';
+import { useHistory } from '@/context/HistoryContext';
+import { useEffect } from 'react';
 
 export function useScanner() {
   const t = useTranslations();
   const locale = useLocale();
+  const { 
+    registerRestoreHandler, 
+    refreshHistory: refreshGlobalHistory,
+    pendingRestoreEntry,
+    setPendingRestoreEntry
+  } = useHistory();
 
   const [image, setImage] = useState<string | null>(null);
   const [analyzing, setAnalyzing] = useState(false);
@@ -15,9 +25,32 @@ export function useScanner() {
   const [error, setError] = useState<string | null>(null);
   const [loadingStep, setLoadingStep] = useState(0);
   const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
-
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  const restoreScan = useCallback((entry: ScanHistoryEntry) => {
+    setResult(entry.result);
+    setImage(entry.thumbnail || null);
+    setError(null);
+    trackEvent('scan_restored');
+  }, []);
+
+  useEffect(() => {
+    registerRestoreHandler(restoreScan);
+  }, [registerRestoreHandler, restoreScan]);
+
+  // ── Handle cross-page restores ────────────────────────────────────────
+  useEffect(() => {
+    if (pendingRestoreEntry) {
+      // Defer to next tick to avoid cascading render warning
+      const timer = setTimeout(() => {
+        restoreScan(pendingRestoreEntry);
+        setPendingRestoreEntry(null);
+      }, 0);
+      return () => clearTimeout(timer);
+    }
+  }, [pendingRestoreEntry, restoreScan, setPendingRestoreEntry]);
+
+  // ── Image Upload ──────────────────────────────────────────────────────
   const handleUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
@@ -40,20 +73,17 @@ export function useScanner() {
     setResult(null);
   };
 
+  // ── Analyze via Server API Route ──────────────────────────────────────
   const analyzePrescription = async () => {
     if (!image) {
       setError(t('Errors.noImage'));
       return;
     }
 
-    if (!ai) {
-      setError(t('Errors.apiKeyMissing'));
-      return;
-    }
-
     setAnalyzing(true);
     setError(null);
     setLoadingStep(0);
+    trackEvent('scan_started');
 
     const stepsLength = 4; // match loadingStepLabels length
 
@@ -62,43 +92,50 @@ export function useScanner() {
     }, 2000);
 
     try {
-      const base64Data = image.split(',')[1];
-      
-      const localizedPrompt = `${ROSHETTA_PROMPT}\n\nThe current locale is: ${locale}. Please provide descriptions and labels in the appropriate language.`;
-
-      const response = await ai.models.generateContent({
-        model: "gemini-3-flash-preview",
-        contents: {
-          parts: [
-            { text: localizedPrompt },
-            {
-              inlineData: {
-                data: base64Data,
-                mimeType: "image/jpeg"
-              }
-            }
-          ]
-        },
-        config: {
-          responseMimeType: "application/json",
-          responseSchema: schema,
-        }
+      const response = await fetch('/api/analyze', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ image, locale }),
       });
 
-      const text = response.text || '';
-      const cleanedText = text.replace(/```json|```/gi, '').trim();
-      const parsed = JSON.parse(cleanedText);
-      
+      if (!response.ok) {
+        const errBody = await response.json().catch(() => null);
+
+        if (response.status === 429) {
+          setError(t('Errors.rateLimited', { defaultValue: 'Too many requests. Please wait a moment and try again.' }));
+          return;
+        }
+
+        setError(errBody?.error || t('Errors.analysisFailed'));
+        return;
+      }
+
+      const parsed: AnalysisResult = await response.json();
       setResult(parsed);
+      trackEvent('scan_completed', { medicationCount: String(parsed.medications?.length || 0) });
+
+      // Save to history
+      if (image) {
+        await saveScan(parsed, image);
+        refreshGlobalHistory();
+      }
     } catch (err) {
       console.error(err);
-      setError(t('Errors.analysisFailed'));
+      trackEvent('scan_failed');
+
+      // Distinguish network errors from other failures
+      if (err instanceof TypeError && err.message.includes('fetch')) {
+        setError(t('Errors.networkError', { defaultValue: 'Network error. Please check your internet connection and try again.' }));
+      } else {
+        setError(t('Errors.analysisFailed'));
+      }
     } finally {
       clearInterval(stepInterval);
       setAnalyzing(false);
     }
   };
 
+  // ── PDF Export ────────────────────────────────────────────────────────
   const generatePDF = async () => {
     if (!result) return;
     setIsGeneratingPDF(true);
@@ -176,5 +213,6 @@ export function useScanner() {
     analyzePrescription,
     generatePDF,
     loadingStepLabels,
+    restoreScan,
   };
 }

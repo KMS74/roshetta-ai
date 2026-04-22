@@ -6,8 +6,10 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import { Header } from "@/components/Header";
+import { ClientShell } from "@/components/ClientShell";
 import { Footer } from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/next";
+import { HistoryProvider } from "@/context/HistoryContext";
 
 const cairo = Cairo({
   subsets: ["arabic", "latin"],
@@ -61,13 +63,17 @@ export default async function LocaleLayout({
       >
         <ThemeProvider>
           <NextIntlClientProvider messages={messages}>
-            <div className="min-h-screen bg-brand-bg flex flex-col transition-colors duration-500">
-              <Header />
-              {children}
-              <Footer />
-            </div>
+            <HistoryProvider>
+              <div className="min-h-screen bg-brand-bg flex flex-col transition-colors duration-500">
+                <ClientShell>
+                  {children}
+                </ClientShell>
+                <Footer />
+              </div>
+            </HistoryProvider>
           </NextIntlClientProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );

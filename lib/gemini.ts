@@ -1,10 +1,14 @@
 import { GoogleGenAI, Type } from "@google/genai";
 
-const GEMINI_API_KEY = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
+// ── Gemini Configuration ────────────────────────────────────────────────────
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
-export const ai = GEMINI_API_KEY ? new GoogleGenAI({ apiKey: GEMINI_API_KEY }) : null;
+// The new @google/genai SDK initializes with an options object
+const client = GEMINI_API_KEY 
+  ? new GoogleGenAI({ apiKey: GEMINI_API_KEY }) 
+  : null;
 
-export const ROSHETTA_PROMPT = `
+const ROSHETTA_PROMPT = `
 # Role
 You are "Roshetta.AI" (روشتة.ذكاء), a world-class digital pharmacist powered by advanced AI. Your expertise is transcribing and analyzing medical prescriptions, particularly those from Egypt (which are often handwritten in English medical shorthand).
 
@@ -39,7 +43,7 @@ Mandatory English ending: "This AI analysis is for assistance only. Dosages must
 Return a valid JSON object following the defined schema.
 `;
 
-export const schema = {
+const schema = {
   type: Type.OBJECT,
   properties: {
     summary: { type: Type.STRING },
@@ -58,14 +62,14 @@ export const schema = {
               type: Type.OBJECT,
               properties: {
                 time: { type: Type.STRING },
-                label: { type: Type.STRING }
+                label: { type: Type.STRING },
               },
-              required: ["time", "label"]
-            }
-          }
+              required: ["time", "label"],
+            },
+          },
         },
-        required: ["name", "dosage", "usage", "tip", "reminders"]
-      }
+        required: ["name", "dosage", "usage", "tip", "reminders"],
+      },
     },
     interactions: {
       type: Type.ARRAY,
@@ -73,12 +77,54 @@ export const schema = {
         type: Type.OBJECT,
         properties: {
           severity: { type: Type.STRING },
-          description: { type: Type.STRING }
+          description: { type: Type.STRING },
         },
-        required: ["severity", "description"]
-      }
+        required: ["severity", "description"],
+      },
     },
-    disclaimer: { type: Type.STRING }
+    disclaimer: { type: Type.STRING },
   },
-  required: ["summary", "medications", "interactions", "disclaimer"]
+  required: ["summary", "medications", "interactions", "disclaimer"],
 };
+
+/**
+ * Analyzes an image of a prescription using Gemini AI.
+ * This function should ONLY be called on the server.
+ */
+export async function analyzePrescriptionImage(base64Image: string, locale: string = 'en') {
+  if (!client) {
+    throw new Error("Gemini API key is not configured.");
+  }
+
+  const prompt = `${ROSHETTA_PROMPT}\n\nThe current locale is: ${locale}. Please provide descriptions and labels in the appropriate language.`;
+
+  // The new @google/genai SDK uses client.models.generateContent directly
+  const response = await client.models.generateContent({
+    model: "gemini-3-flash-preview", 
+    contents: [
+      { text: prompt },
+      {
+        inlineData: {
+          mimeType: "image/jpeg",
+          data: base64Image,
+        },
+      },
+    ],
+    config: {
+      responseMimeType: "application/json",
+      responseSchema: schema,
+    },
+  });
+
+  // Check if result has text
+  if (!response.text) {
+    throw new Error("Gemini returned an empty response.");
+  }
+
+  try {
+    return JSON.parse(response.text);
+  } catch (err) {
+    console.error("Failed to parse Gemini JSON response:", response.text);
+    throw new Error("Failed to parse analysis result.");
+  }
+}
