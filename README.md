@@ -1,4 +1,4 @@
-# 🩺 Roshetta.AI (روشتة.ذكاء)
+# 🩺 Roshetta.AI
 
 **The AI Prescription Expert** – *Decoding Handwritten Prescriptions with Precision.*
 
