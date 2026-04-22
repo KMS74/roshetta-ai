@@ -17,6 +17,7 @@ export interface Interaction {
 }
 
 export interface AnalysisResult {
+  summary: string;
   medications: Medication[];
   interactions: Interaction[];
   disclaimer: string;

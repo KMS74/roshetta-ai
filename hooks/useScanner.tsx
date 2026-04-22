@@ -126,10 +126,12 @@ export function useScanner() {
         severityDisplayHigh: t('Insights.severityDisplayHigh'),
         severityDisplayMedium: t('Insights.severityDisplayMedium'),
         severityDisplayLow: t('Insights.severityDisplayLow'),
+        summaryLabel: t('Report.summaryLabel'),
       };
 
       const blob = await pdf(
         <MedicalReport 
+          summary={result.summary}
           medications={result.medications}
           interactions={result.interactions}
           disclaimer={result.disclaimer}

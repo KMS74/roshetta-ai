@@ -5,6 +5,9 @@ import type { AnalysisResult } from '@/lib/types/prescription';
 import { DrugInteractionsSection } from './DrugInteractionsSection';
 import { MedicationCard } from './MedicationCard';
 import { ResultsSummaryHeader } from './ResultsSummaryHeader';
+import { ShareActions } from './ShareActions';
+import { useTranslations } from 'next-intl';
+import { MapPin } from 'lucide-react';
 
 type ResultsSuccessPanelProps = {
   result: AnalysisResult;
@@ -17,6 +20,7 @@ export function ResultsSuccessPanel({
   onDownloadPdf,
   isGeneratingPdf,
 }: ResultsSuccessPanelProps) {
+  const t = useTranslations();
   return (
     <motion.div
       initial={{ opacity: 0, y: 16 }}
@@ -30,6 +34,42 @@ export function ResultsSuccessPanel({
         onDownloadPdf={onDownloadPdf}
         isGeneratingPdf={isGeneratingPdf}
       />
+
+      <div className="flex flex-col gap-6">
+        <div className="flex flex-wrap items-center justify-between gap-4">
+          <ShareActions result={result} />
+          
+          <a
+            href="https://www.google.com/maps/search/pharmacy/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 rounded-xl bg-slate-100 px-4 py-2.5 text-sm font-bold text-slate-700 transition-all hover:bg-slate-200 active:scale-[0.98]"
+          >
+            <MapPin className="h-4 w-4 text-brand-teal" />
+            <span>{t('Navigation.findPharmacy', { defaultValue: 'Find Pharmacy' })}</span>
+          </a>
+        </div>
+        
+        {result.summary && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="rounded-2xl border border-brand-teal/20 bg-brand-teal/5 p-5 shadow-sm"
+          >
+            <div className="flex items-center gap-2 mb-2">
+              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-brand-teal text-[10px] text-white font-bold">
+                i
+              </span>
+              <h3 className="text-sm font-bold uppercase tracking-wider text-brand-teal">
+                {t('Insights.summaryLabel')}
+              </h3>
+            </div>
+            <p className="text-base font-medium leading-relaxed text-slate-800">
+              {result.summary}
+            </p>
+          </motion.div>
+        )}
+      </div>
 
       <div className="space-y-4">
         {result.medications.map((medication, index) => (

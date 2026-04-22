@@ -460,6 +460,7 @@ interface Interaction {
 }
 
 interface MedicalReportProps {
+  summary: string;
   medications: Medication[];
   interactions: Interaction[];
   disclaimer: string;
@@ -481,6 +482,7 @@ interface MedicalReportProps {
     severityDisplayHigh: string;
     severityDisplayMedium: string;
     severityDisplayLow: string;
+    summaryLabel: string;
   };
 }
 
@@ -496,6 +498,7 @@ function severityDisplayLabel(severity: InteractionSeverity, labels: MedicalRepo
 }
 
 export const MedicalReport = ({
+  summary,
   medications,
   interactions,
   disclaimer,
@@ -539,6 +542,16 @@ export const MedicalReport = ({
               </Text>
             </View>
           </View>
+
+          {/* Quick Summary Section */}
+          {summary ? (
+            <View style={{ marginBottom: 20 }}>
+              <Text style={styles.sectionTitle}>{labels.summaryLabel}</Text>
+              <View style={[styles.usageBox, isRtl ? { direction: 'rtl' } : {}]}>
+                <Text style={styles.medUsage}>{summary}</Text>
+              </View>
+            </View>
+          ) : null}
 
           <Text style={styles.sectionTitle}>{labels.extractedMeds}</Text>
 

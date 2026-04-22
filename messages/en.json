@@ -17,7 +17,8 @@
     "about": "About",
     "privacy": "Privacy",
     "terms": "Terms",
-    "contact": "Contact"
+    "contact": "Contact",
+    "findPharmacy": "Find Pharmacy"
   },
   "Scanner": {
     "heroTitle": "Understand Your Prescription with Ease",
@@ -55,7 +56,13 @@
     "resultsEmptyHint": "Upload a clear photo of your prescription, then tap Analyze to extract medications, reminders, and safety information.",
     "resultsSectionLabel": "Analysis",
     "remindersHeading": "Reminders",
-    "interactionsLead": "We compare detected medications for potential interactions. Always confirm with a licensed pharmacist before making decisions."
+    "summaryLabel": "Medical Summary",
+    "interactionsLead": "We compare detected medications for potential interactions. Always confirm with a licensed pharmacist before making decisions.",
+    "shareWhatsApp": "Share to WhatsApp",
+    "copyResults": "Copy Results",
+    "searchWeb": "Search Info",
+    "copied": "Copied to clipboard!",
+    "sharingText": "Check out my decoded prescription from Roshetta.AI:\n\n"
   },
   "Report": {
     "title": "Roshetta.AI Report",
@@ -71,6 +78,7 @@
     "disclaimerTitle": "Medical Accuracy Disclaimer",
     "dateLabel": "Date",
     "timeLabel": "Time",
+    "summaryLabel": "Medical Summary",
     "footerTagline": "Roshetta.AI · AI-assisted analysis only. Always confirm with a licensed pharmacist or physician."
   },
   "Loading": {

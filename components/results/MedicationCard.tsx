@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { AlertTriangle, Clock, Stethoscope } from 'lucide-react';
+import { AlertTriangle, Clock, Stethoscope, ExternalLink } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
 import { formatTime12h } from '@/lib/format-time';
 import type { Medication } from '@/lib/types/prescription';
@@ -35,9 +35,21 @@ export function MedicationCard({ medication, index }: MedicationCardProps) {
               <h3 className="text-lg font-black leading-tight text-slate-900 sm:text-xl">
                 {medication.name}
               </h3>
-              <div className="mt-2 flex flex-wrap items-center gap-2 text-sm font-bold text-brand-teal">
-                <Clock className="h-4 w-4 shrink-0" aria-hidden />
-                <span>{medication.dosage}</span>
+              <div className="mt-2 flex flex-wrap items-center gap-3">
+                <div className="flex items-center gap-1.5 text-sm font-bold text-brand-teal">
+                  <Clock className="h-4 w-4 shrink-0" aria-hidden />
+                  <span>{medication.dosage}</span>
+                </div>
+                
+                <a
+                  href={`https://www.google.com/search?q=${encodeURIComponent(medication.name + ' medication uses')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest text-slate-400 hover:text-brand-teal transition-colors"
+                >
+                  <span>{t('Insights.searchWeb')}</span>
+                  <ExternalLink className="h-3 w-3" />
+                </a>
               </div>
             </div>
           </div>
