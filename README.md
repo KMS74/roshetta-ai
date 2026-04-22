@@ -28,7 +28,6 @@ Roshetta.AI is a state-of-the-art AI-powered platform designed to bridge the gap
 - 🌍 **Fully Bilingual**: Native support for English and Arabic with seamless RTL/LTR layout transitions.
 - 💾 **Scan History**: Securely save, retrieve, and manage your previous prescription scans.
 - 🌓 **Premium Adaptive UI**: Fluid dark and light mode experience with smooth micro-animations.
-- 📱 **PWA Ready**: Installable on mobile devices for a native app-like experience.
 
 ---
 
