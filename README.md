@@ -1,18 +1,18 @@
-# 🩺 Roshetta.AI (روشتة.ذكاء)
+# 🩺 Roshetta.AI
 
 **The AI Prescription Expert** – *Decoding Handwritten Prescriptions with Precision.*
 
 [![Next.js](https://img.shields.io/badge/Next.js-16.2-black?logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue?logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.1-38B2AC?logo=tailwind-css)](https://tailwindcss.com/)
-[![Gemini AI](https://img.shields.io/badge/AI-Gemini_1.5_Flash-vibrant?logo=google-gemini)](https://aistudio.google.com/)
+[![Gemini AI](https://img.shields.io/badge/AI-Gemini_3_Flash-vibrant?logo=google-gemini)](https://aistudio.google.com/)
 [![Supabase](https://img.shields.io/badge/Database-Supabase-3ECF8E?logo=supabase)](https://supabase.com/)
 
 ---
 
 ## 🚀 Overview
 
-Roshetta.AI is a state-of-the-art AI-powered platform designed to bridge the gap between complex medical handwriting and patient understanding. Leveraging **Google's Gemini 1.5 Flash Vision** model, it instantly translates handwritten prescriptions into clear, structured, and actionable medical summaries.
+Roshetta.AI is a state-of-the-art AI-powered platform designed to bridge the gap between complex medical handwriting and patient understanding. Leveraging **Google's Gemini 3 Flash Vision** model, it instantly translates handwritten prescriptions into clear, structured, and actionable medical summaries.
 
 ### 🌐 [Visit App (Live)](https://roshetta.ai)
 
@@ -28,7 +28,6 @@ Roshetta.AI is a state-of-the-art AI-powered platform designed to bridge the gap
 - 🌍 **Fully Bilingual**: Native support for English and Arabic with seamless RTL/LTR layout transitions.
 - 💾 **Scan History**: Securely save, retrieve, and manage your previous prescription scans.
 - 🌓 **Premium Adaptive UI**: Fluid dark and light mode experience with smooth micro-animations.
-- 📱 **PWA Ready**: Installable on mobile devices for a native app-like experience.
 
 ---
 
@@ -39,7 +38,7 @@ Roshetta.AI is a state-of-the-art AI-powered platform designed to bridge the gap
 | **Framework** | [Next.js 16](https://nextjs.org/) (App Router) |
 | **Language** | [TypeScript](https://www.typescriptlang.org/) |
 | **Styling** | [Tailwind CSS v4](https://tailwindcss.com/) & [Motion](https://motion.dev/) |
-| **AI Vision** | [Google Gemini 1.5 Flash](https://aistudio.google.com/) |
+| **AI Vision** | [Google Gemini 3 Flash](https://aistudio.google.com/) |
 | **Backend/DB** | [Supabase](https://supabase.com/) |
 | **PDF Engine** | [React-PDF](https://react-pdf.org/) |
 | **i18n** | [next-intl](https://next-intl-docs.vercel.app/) |
