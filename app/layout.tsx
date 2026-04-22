@@ -12,12 +12,6 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: 'Roshetta.AI | روشتة.ذكاء',
   description: 'AI Prescription Expert - Advanced digital pharmacist for decoding handwritten prescriptions.',
-  manifest: '/manifest.json',
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: 'default',
-    title: 'Roshetta.AI',
-  },
   formatDetection: {
     telephone: false,
   },

@@ -29,8 +29,8 @@ Return an object with the following structure:
       "usage": "1-sentence simple explanation of what it treats",
       "tip": "One crucial tip, e.g., \"خد الدواء بعد الأكل\" or \"ممكن يسبب نعاس\"",
       "reminders": [
-        { "time": "08:00", "label": "الجرعة الصباحية" },
-        { "time": "20:00", "label": "الجرعة المسائية" }
+        { "time": "08 AM", "label": "الجرعة الصباحية" },
+        { "time": "08 PM", "label": "الجرعة المسائية" }
       ]
     }
   ],
