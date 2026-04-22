@@ -4,6 +4,7 @@ import React from 'react';
 import { Document, Page, Text, View, StyleSheet, Font } from '@react-pdf/renderer';
 import { formatTime12h } from '@/lib/format-time';
 import { normalizeInteractionSeverity, type InteractionSeverity } from '@/lib/types/prescription';
+import { PDFBrandLogo } from './pdf/PDFBrandLogo';
 
 /** Matches `app/globals.css` — Roshetta.AI brand */
 const BRAND = {
@@ -523,9 +524,7 @@ export const MedicalReport = ({
           */}
           <View style={[styles.header, { flexDirection: isRtl ? 'row-reverse' : 'row' }]}>
             <View style={[styles.headerMain, { flexDirection: isRtl ? 'row-reverse' : 'row' }]}>
-              <View style={styles.logoMark}>
-                <Text style={styles.logoText}>Rx</Text>
-              </View>
+              <PDFBrandLogo isRtl={isRtl} showText={false} />
               <View style={[styles.headerTitles, isRtl ? { direction: 'rtl' } : {}]}>
                 <Text style={styles.title}>{labels.reportTitle}</Text>
                 <Text style={styles.subtitle}>{labels.reportSubtitle}</Text>
@@ -558,8 +557,12 @@ export const MedicalReport = ({
           {medications.map((med, index) => (
             <View key={index} style={styles.medCard} wrap={false}>
               <View style={[styles.medTopRow, { flexDirection: isRtl ? 'row-reverse' : 'row' }]}>
-                <View style={styles.medIconWrap}>
-                  <Text style={styles.medIcon}>Rx</Text>
+                <View style={{
+                  marginRight: isRtl ? 0 : 12,
+                  marginLeft: isRtl ? 12 : 0,
+                  transform: 'scale(0.8)',
+                }}>
+                  <PDFBrandLogo isRtl={isRtl} showText={false} />
                 </View>
                 <View style={[styles.medTextCol, isRtl ? { direction: 'rtl' } : {}]}>
                   <Text style={styles.medName}>{med.name}</Text>

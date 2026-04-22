@@ -8,6 +8,7 @@ import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import { motion, AnimatePresence } from 'motion/react';
 import { useHistory } from '@/context/HistoryContext';
+import { BrandLogo } from './BrandLogo';
 
 type HeaderProps = {
   onOpenHistory?: () => void;
@@ -31,12 +32,9 @@ export function Header({ onOpenHistory }: HeaderProps) {
         <Link 
           href="/" 
           aria-label={t('Common.brandName')}
-          className="flex items-center gap-3 transition-transform hover:scale-105"
+          className="transition-transform hover:scale-105"
         >
-          <div className="rounded-xl bg-brand-teal p-2 shadow-lg shadow-brand-teal/20">
-            <Brain className="h-6 w-6 text-white" />
-          </div>
-          <span className="text-2xl font-black tracking-tight text-slate-900 dark:text-white">{t('Common.brandName')}</span>
+          <BrandLogo />
         </Link>
  
         {/* Desktop Nav */}
