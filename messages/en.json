@@ -20,8 +20,8 @@
     "contact": "Contact"
   },
   "Scanner": {
-    "heroTitle": "Decode Any Prescription Instantly",
-    "heroSubtitle": "Using advanced AI to extract medications, dosages, and safety warnings from handwritten prescriptions.",
+    "heroTitle": "Understand Your Prescription with Ease",
+    "heroSubtitle": "Transform confusing handwritten prescriptions into clear, actionable medical information in seconds using AI.",
     "uploadTitle": "Snap or Upload Prescription",
     "uploadSubtitle": "Supports JPG, PNG (Max 10MB)",
     "analyzeButton": "Analyze Prescription",
