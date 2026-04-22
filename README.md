@@ -5,7 +5,7 @@
 [![Next.js](https://img.shields.io/badge/Next.js-16.2-black?logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue?logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.1-38B2AC?logo=tailwind-css)](https://tailwindcss.com/)
-[![Gemini AI](https://img.shields.io/badge/AI-Gemini_1.5_Flash-vibrant?logo=google-gemini)](https://aistudio.google.com/)
+[![Gemini AI](https://img.shields.io/badge/AI-Gemini_3_Flash-vibrant?logo=google-gemini)](https://aistudio.google.com/)
 [![Supabase](https://img.shields.io/badge/Database-Supabase-3ECF8E?logo=supabase)](https://supabase.com/)
 
 ---
