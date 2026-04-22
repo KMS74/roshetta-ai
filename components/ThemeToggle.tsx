@@ -19,7 +19,7 @@ export function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <div className="h-10 w-10 rounded-xl bg-slate-100 dark:bg-slate-800 animate-pulse" />
+      <div className="h-9 w-9 sm:h-10 sm:w-10 shrink-0 rounded-xl bg-slate-100 dark:bg-slate-800 animate-pulse" />
     );
   }
 
@@ -28,7 +28,7 @@ export function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(isDark ? 'light' : 'dark')}
-      className={`relative h-10 w-10 flex items-center justify-center rounded-xl border shadow-sm transition-all duration-300 hover:scale-110 active:scale-95 group overflow-hidden ${
+      className={`relative h-9 w-9 sm:h-10 sm:w-10 shrink-0 flex items-center justify-center rounded-xl border shadow-sm transition-all duration-300 hover:scale-110 active:scale-95 group overflow-hidden ${
         isDark 
           ? 'bg-slate-900 border-slate-700 hover:border-brand-teal hover:shadow-[0_0_20px_rgba(45,212,191,0.2)]' 
           : 'bg-white border-slate-200 hover:border-brand-coral hover:shadow-[0_0_20px_rgba(251,113,133,0.2)]'

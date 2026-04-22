@@ -22,7 +22,7 @@ export const ScannerUploader: React.FC<ScannerUploaderProps> = ({
 
   return (
     <div
-      className={`relative flex min-h-[360px] flex-col items-center justify-center rounded-3xl border-2 border-dashed transition-all duration-500 ${
+      className={`relative flex min-h-[300px] sm:min-h-[360px] flex-col items-center justify-center rounded-3xl border-2 border-dashed transition-all duration-500 ${
         image
           ? "border-brand-teal bg-brand-teal/5 dark:bg-brand-teal/10"
           : "border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/30 hover:border-brand-teal/50"
@@ -54,7 +54,7 @@ export const ScannerUploader: React.FC<ScannerUploaderProps> = ({
           </button>
         </div>
       ) : (
-        <div className="flex w-full flex-col items-center p-8 text-center">
+        <div className="flex w-full flex-col items-center p-4 sm:p-8 text-center">
           <div className="mb-8 relative">
             <div className="absolute -inset-4 rounded-full bg-brand-teal/20 dark:bg-brand-teal/30 blur-xl animate-pulse" />
             <div className="relative flex h-24 w-24 items-center justify-center rounded-full bg-linear-to-br from-brand-teal/20 to-brand-teal/5 dark:from-brand-teal/30 dark:to-brand-teal/10 text-brand-teal shadow-inner">
@@ -72,7 +72,7 @@ export const ScannerUploader: React.FC<ScannerUploaderProps> = ({
           <div className="grid w-full grid-cols-1 sm:grid-cols-2 gap-4 max-w-sm">
             <button
               onClick={() => cameraInputRef.current?.click()}
-              className="flex items-center justify-center gap-3 rounded-2xl bg-brand-teal px-6 py-4 font-bold text-white shadow-lg shadow-brand-teal/20 transition-all hover:bg-brand-teal-dark hover:scale-[1.02] active:scale-95"
+              className="flex items-center justify-center gap-2 sm:gap-3 rounded-2xl bg-brand-teal px-4 py-3 sm:px-6 sm:py-4 font-bold text-white shadow-lg shadow-brand-teal/20 transition-all hover:bg-brand-teal-dark hover:scale-[1.02] active:scale-95"
             >
               <Camera className="h-5 w-5" />
               {t("Scanner.takePhoto")}
@@ -80,7 +80,7 @@ export const ScannerUploader: React.FC<ScannerUploaderProps> = ({
             
             <button
               onClick={() => fileInputRef.current?.click()}
-              className="flex items-center justify-center gap-3 rounded-2xl bg-white dark:bg-slate-800 px-6 py-4 font-bold text-slate-700 dark:text-slate-200 shadow-md border border-slate-200 dark:border-slate-700 transition-all hover:bg-slate-50 dark:hover:bg-slate-700 hover:scale-[1.02] active:scale-95"
+              className="flex items-center justify-center gap-2 sm:gap-3 rounded-2xl bg-white dark:bg-slate-800 px-4 py-3 sm:px-6 sm:py-4 font-bold text-slate-700 dark:text-slate-200 shadow-md border border-slate-200 dark:border-slate-700 transition-all hover:bg-slate-50 dark:hover:bg-slate-700 hover:scale-[1.02] active:scale-95"
             >
               <ImageIcon className="h-5 w-5" />
               {t("Scanner.uploadFile")}

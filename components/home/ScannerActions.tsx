@@ -19,12 +19,12 @@ export const ScannerActions: React.FC<ScannerActionsProps> = ({
   const t = useTranslations();
 
   return (
-    <div className="mt-8 flex flex-col gap-4">
+    <div className="mt-6 md:mt-8 flex flex-col gap-4">
       <button
         disabled={!image || analyzing}
         onClick={onAnalyze}
         aria-label={analyzing ? t('Scanner.analyzing') : t('Scanner.analyzeButton')}
-        className={`group relative flex h-16 w-full items-center justify-center gap-3 overflow-hidden rounded-2xl text-lg font-bold transition-all focus:ring-4 focus:ring-brand-teal/20 focus:outline-none ${
+        className={`group relative flex h-14 sm:h-16 w-full items-center justify-center gap-3 overflow-hidden rounded-2xl text-lg font-bold transition-all focus:ring-4 focus:ring-brand-teal/20 focus:outline-none ${
           analyzing 
             ? 'bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500 cursor-not-allowed' 
             : !image 

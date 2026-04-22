@@ -28,11 +28,11 @@ export function Header({ onOpenHistory }: HeaderProps) {
 
   return (
     <header role="banner" className="sticky top-0 z-40 border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-brand-bg/80 backdrop-blur-md">
-      <div className="container mx-auto px-4 lg:px-8 h-20 flex items-center justify-between">
+      <div className="container mx-auto px-4 lg:px-8 h-16 md:h-20 flex items-center justify-between">
         <Link 
           href="/" 
           aria-label={t('Common.brandName')}
-          className="transition-transform hover:scale-105"
+          className="transition-transform hover:scale-105 shrink-0"
         >
           <BrandLogo />
         </Link>
@@ -50,12 +50,12 @@ export function Header({ onOpenHistory }: HeaderProps) {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2 sm:gap-4">
+        <div className="flex items-center gap-1 sm:gap-2 md:gap-4 shrink-0">
           {/* History Button with Badge */}
           {onOpenHistory && (
             <button
               onClick={onOpenHistory}
-              className="group relative flex h-10 w-10 items-center justify-center rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-brand-teal dark:hover:text-brand-green transition-all active:scale-95"
+              className="group relative flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-brand-teal dark:hover:text-brand-green transition-all active:scale-95"
               aria-label={t('History.title', { defaultValue: 'Recent Scans' })}
               title={t('History.title', { defaultValue: 'Recent Scans' })}
             >
@@ -83,7 +83,7 @@ export function Header({ onOpenHistory }: HeaderProps) {
           {/* Mobile Hamburger */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="flex h-10 w-10 items-center justify-center rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors md:hidden"
+            className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors md:hidden"
             aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
           >
             {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}

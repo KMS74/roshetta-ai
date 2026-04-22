@@ -11,10 +11,10 @@ export function Footer() {
   return (
     <footer
       role="contentinfo"
-      className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-brand-bg py-12 transition-colors duration-300"
+      className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-brand-bg py-8 md:py-12 transition-colors duration-300"
     >
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
           <div className="flex items-center gap-3">
             <div className="rounded-xl bg-brand-teal p-2 shadow-lg shadow-brand-teal/20">
               <Brain className="size-5 text-white" />
@@ -26,7 +26,7 @@ export function Footer() {
 
           <nav
             aria-label="Footer Navigation"
-            className="flex flex-wrap justify-center gap-8"
+            className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8"
           >
             <Link
               href="/privacy"
