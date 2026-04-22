@@ -5,6 +5,7 @@ import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const cairo = Cairo({
   subsets: ["arabic", "latin"],
@@ -51,13 +52,16 @@ export default async function LocaleLayout({
       lang={locale}
       dir={isArabic ? "rtl" : "ltr"}
       className={cn(cairo.variable, outfit.variable)}
+      suppressHydrationWarning
     >
       <body
         className={cn("antialiased", isArabic ? "font-arabic" : "font-sans")}
       >
-        <NextIntlClientProvider messages={messages}>
-          {children}
-        </NextIntlClientProvider>
+        <ThemeProvider>
+          <NextIntlClientProvider messages={messages}>
+            {children}
+          </NextIntlClientProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -1,7 +1,7 @@
-import React from 'react';
-import Image from 'next/image';
-import { Upload } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import React from "react";
+import Image from "next/image";
+import { Upload, X } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 interface ScannerUploaderProps {
   image: string | null;
@@ -19,51 +19,60 @@ export const ScannerUploader: React.FC<ScannerUploaderProps> = ({
   const t = useTranslations();
 
   return (
-    <div 
+    <div
       onClick={() => fileInputRef.current?.click()}
-      onKeyDown={(e) => e.key === 'Enter' && fileInputRef.current?.click()}
+      onKeyDown={(e) => e.key === "Enter" && fileInputRef.current?.click()}
       role="button"
       tabIndex={0}
-      aria-label={t('Scanner.uploadTitle')}
+      aria-label={t("Scanner.uploadTitle")}
       className={`relative flex min-h-[340px] cursor-pointer flex-col items-center justify-center rounded-2xl border-2 border-dashed transition-all duration-300 focus:ring-2 focus:ring-brand-teal focus:outline-none ${
-        image ? 'border-brand-teal bg-brand-teal/5' : 'border-slate-200 bg-slate-50 hover:border-brand-teal hover:bg-slate-100'
+        image
+          ? "border-brand-teal bg-brand-teal/5 dark:bg-brand-teal/10"
+          : "border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 hover:border-brand-teal hover:bg-slate-100 dark:hover:bg-slate-800"
       }`}
     >
       {image ? (
         <div className="relative h-full w-full p-4">
           <Image
             src={image}
-            alt={t('Scanner.prescriptionImageAlt')}
-            width={600} 
-            height={400} 
-            unoptimized 
-            className="h-[260px] w-full rounded-lg object-contain shadow-sm" 
+            alt={t("Scanner.prescriptionImageAlt")}
+            width={600}
+            height={400}
+            unoptimized
+            className="h-[260px] w-full rounded-lg object-contain shadow-sm"
           />
           <button
             type="button"
-            onClick={(e) => { e.stopPropagation(); onRemove(); }}
-            aria-label={t('Scanner.removeImage')}
-            className="absolute top-6 end-6 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-red-500 shadow-md backdrop-blur-sm hover:bg-red-50 focus:ring-2 focus:ring-red-500"
+            onClick={(e) => {
+              e.stopPropagation();
+              onRemove();
+            }}
+            aria-label={t("Scanner.removeImage")}
+            className="absolute -top-3 -end-3 flex h-10 w-10 items-center justify-center rounded-full bg-white dark:bg-slate-800 text-red-500 shadow-xl border border-slate-100 dark:border-slate-700 transition-transform hover:scale-110 active:scale-90"
           >
-            ×
+            <X className="h-5 w-5" />
           </button>
         </div>
       ) : (
         <div className="text-center p-8">
-          <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-brand-teal/10 text-brand-teal">
+          <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-brand-teal/10 dark:bg-brand-teal/20 text-brand-teal dark:text-brand-green">
             <Upload className="h-10 w-10" />
           </div>
-          <h3 className="mb-2 text-xl font-bold text-slate-900">{t('Scanner.uploadTitle')}</h3>
-          <p className="text-sm text-slate-500">{t('Scanner.uploadSubtitle')}</p>
+          <h3 className="mb-2 text-xl font-bold text-slate-900 dark:text-white">
+            {t("Scanner.uploadTitle")}
+          </h3>
+          <p className="text-sm text-slate-700 dark:text-slate-300">
+            {t("Scanner.uploadSubtitle")}
+          </p>
         </div>
       )}
-      <input 
-        type="file" 
-        ref={fileInputRef} 
-        onChange={onUpload} 
+      <input
+        type="file"
+        ref={fileInputRef}
+        onChange={onUpload}
         accept="image/*"
-        capture="environment" 
-        className="hidden" 
+        capture="environment"
+        className="hidden"
         aria-hidden="true"
       />
     </div>

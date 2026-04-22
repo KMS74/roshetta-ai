@@ -1,20 +1,66 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Root Variables for Light Mode */
+:root {
+  --brand-teal: #0D4C59;
+  --brand-teal-light: #166475;
+  --brand-green: #10B981;
+  --brand-green-light: #34d399;
+  --brand-green-dark: #059669;
+  --brand-coral: #FF7E62;
+  --brand-teal: #0d9488;
+  --brand-teal-dark: #0f766e; /* Better contrast on white */
+  --brand-green: #10b981;
+  --brand-green-dark: #059669; /* Better contrast on white */
+  --brand-coral: #fb7185;
+  --brand-bg: #F8FAFC;
+  --brand-dark: #041418;
+  
+  --brand-teal-light: #ccfbf1;
+  --brand-coral-light: #fff1f2;
+
+  --slate-50: #F8FAFC;
+  --slate-100: #f1f5f9;
+  --slate-200: #e2e8f0;
+  --slate-300: #cbd5e1;
+  --slate-400: #94a3b8;
+  --slate-500: #64748b;
+  --slate-600: #475569;
+  --slate-700: #334155;
+  --slate-800: #1e293b;
+  --slate-900: #0f172a;
+}
+
+/* Variables for Dark Mode */
+.dark {
+  --brand-bg: #041418;
+  --brand-teal: #2dd4bf; /* Teal 400 for dark mode visibility */
+  --brand-teal-dark: #5eead4;
+  --brand-green: #34d399;
+  --brand-green-dark: #6ee7b7;
+  --brand-teal-light: #134e4a;
+  --brand-coral-light: #4c0519;
+  --brand-dark: #F8FAFC;
+}
+
 @theme {
   /* Next font injects --font-family-sans / --font-family-arabic on <html> */
   --font-sans: var(--font-family-sans), ui-sans-serif, system-ui, sans-serif;
   --font-arabic: var(--font-family-arabic), ui-sans-serif, system-ui, sans-serif;
 
   /* Roshetta.AI Brand Colors */
-  --color-brand-teal: #0D4C59;
-  --color-brand-teal-light: #166475;
-  --color-brand-green: #10B981;
-  --color-brand-green-light: #34d399;
-  --color-brand-green-dark: #059669;
-  --color-brand-coral: #FF7E62;
-  --color-brand-coral-light: #FFF1EE;
-  --color-brand-bg: #F8FAFC;
-  --color-brand-dark: #0B3B45;
+  --color-brand-teal: var(--brand-teal);
+  --color-brand-teal-dark: var(--brand-teal-dark);
+  --color-brand-teal-light: var(--brand-teal-light);
+  --color-brand-green: var(--brand-green);
+  --color-brand-green-light: var(--brand-green-light);
+  --color-brand-green-dark: var(--brand-green-dark);
+  --color-brand-coral: var(--brand-coral);
+  --color-brand-coral-light: var(--brand-coral-light);
+  --color-brand-bg: var(--brand-bg);
+  --color-brand-dark: var(--brand-dark);
 
   /* Custom Animations */
   @keyframes scan {
@@ -29,13 +75,8 @@
   --animate-scan: scan 2.5s ease-in-out infinite;
   --animate-pulse-soft: pulse-soft 3s ease-in-out infinite;
 
-  /* Color Mapping & Hex Fallbacks */
-  --color-blue-50: var(--color-brand-bg);
-  --color-blue-500: var(--color-brand-green);
-  --color-blue-600: var(--color-brand-teal);
-  --color-blue-700: var(--color-brand-teal-light);
-  
-  --color-slate-50: var(--color-brand-bg);
+  /* Color Mapping */
+  --color-slate-50: var(--brand-bg);
   --color-slate-100: #f1f5f9;
   --color-slate-200: #e2e8f0;
   --color-slate-300: #cbd5e1;
@@ -45,6 +86,11 @@
   --color-slate-700: #334155;
   --color-slate-800: #1e293b;
   --color-slate-900: #0f172a;
+  
+  --color-blue-50: var(--brand-bg);
+  --color-blue-500: var(--brand-green);
+  --color-blue-600: var(--brand-teal);
+  --color-blue-700: var(--brand-teal-light);
 
   --color-emerald-50: #ecfdf5;
   --color-emerald-100: #d1fae5;

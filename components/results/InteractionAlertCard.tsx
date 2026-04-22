@@ -34,7 +34,7 @@ export function InteractionAlertCard({ interaction }: InteractionAlertCardProps)
           className={`h-2 w-2 shrink-0 rounded-full animate-pulse ${interactionDotClass(severity)}`}
           aria-hidden
         />
-        <span className="text-[11px] font-black uppercase tracking-widest text-slate-600">
+        <span className="text-[11px] font-black uppercase tracking-widest text-slate-600 dark:text-slate-400">
           {t(severityLabelKey(severity))}
         </span>
       </div>

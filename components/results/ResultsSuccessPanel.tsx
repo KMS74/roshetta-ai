@@ -43,9 +43,9 @@ export function ResultsSuccessPanel({
             href="https://www.google.com/maps/search/pharmacy/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 rounded-xl bg-slate-100 px-4 py-2.5 text-sm font-bold text-slate-700 transition-all hover:bg-slate-200 active:scale-[0.98]"
+            className="flex items-center gap-2 rounded-xl bg-slate-100 dark:bg-slate-800 px-4 py-2.5 text-sm font-bold text-slate-700 dark:text-slate-300 transition-all hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-[0.98]"
           >
-            <MapPin className="h-4 w-4 text-brand-teal" />
+            <MapPin className="h-4 w-4 text-brand-teal dark:text-brand-green" />
             <span>{t('Navigation.findPharmacy', { defaultValue: 'Find Pharmacy' })}</span>
           </a>
         </div>
@@ -54,17 +54,17 @@ export function ResultsSuccessPanel({
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="rounded-2xl border border-brand-teal/20 bg-brand-teal/5 p-5 shadow-sm"
+            className="rounded-2xl border border-brand-teal/20 dark:border-brand-teal/40 bg-brand-teal/5 dark:bg-brand-teal/20 p-5 shadow-sm"
           >
             <div className="flex items-center gap-2 mb-2">
-              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-brand-teal text-[10px] text-white font-bold">
+              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-brand-teal dark:bg-brand-teal-light text-[10px] text-white font-bold">
                 i
               </span>
-              <h3 className="text-sm font-bold uppercase tracking-wider text-brand-teal">
+              <h3 className="text-sm font-bold uppercase tracking-wider text-brand-teal dark:text-brand-green-light">
                 {t('Insights.summaryLabel')}
               </h3>
             </div>
-            <p className="text-base font-medium leading-relaxed text-slate-800">
+            <p className="text-base font-medium leading-relaxed text-slate-800 dark:text-slate-200">
               {result.summary}
             </p>
           </motion.div>

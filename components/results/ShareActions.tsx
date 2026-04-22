@@ -78,7 +78,7 @@ export function ShareActions({ result }: ShareActionsProps) {
 
       <button
         onClick={handleCopy}
-        className="flex items-center gap-2 rounded-xl bg-white border border-slate-200 px-4 py-2.5 text-sm font-bold text-slate-700 shadow-sm transition-all hover:bg-slate-50 hover:border-slate-300 active:scale-[0.98] relative overflow-hidden"
+        className="flex items-center gap-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-4 py-2.5 text-sm font-bold text-slate-700 dark:text-slate-300 shadow-sm transition-all hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-slate-300 dark:hover:border-slate-600 active:scale-[0.98] relative overflow-hidden"
       >
         <AnimatePresence mode="wait">
           {copied ? (

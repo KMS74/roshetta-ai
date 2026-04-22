@@ -28,7 +28,7 @@ export default function Home() {
   } = useScanner();
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900">
+    <div className="min-h-screen bg-brand-bg text-slate-900 transition-colors duration-300">
       <Header />
 
       <main
@@ -44,7 +44,7 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2 }}
-              className="relative overflow-hidden rounded-3xl bg-white p-8 shadow-xl shadow-slate-200 border border-slate-100"
+              className="relative overflow-hidden rounded-3xl bg-white dark:bg-slate-900 p-8 shadow-xl shadow-slate-200 dark:shadow-black/20 border border-slate-100 dark:border-slate-800"
             >
               <ScannerUploader
                 image={image}
