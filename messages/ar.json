@@ -33,7 +33,9 @@
     "aiPoweredDesc": "أحدث تقنيات الرؤية الحاسوبية لخطوط اليد الطبية.",
     "heroPill": "ذكاء اصطناعي لفهم الروشتات",
     "prescriptionImageAlt": "صورة الروشتة المرفوعة",
-    "removeImage": "إزالة الصورة"
+    "removeImage": "إزالة الصورة",
+    "takePhoto": "التقط صورة",
+    "uploadFile": "اختر من المعرض"
   },
   "Insights": {
     "medications": "الأدوية المستخرجة",

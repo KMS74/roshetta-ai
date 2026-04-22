@@ -26,6 +26,7 @@ export function useScanner() {
   const [loadingStep, setLoadingStep] = useState(0);
   const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const cameraInputRef = useRef<HTMLInputElement>(null);
 
   const restoreScan = useCallback((entry: ScanHistoryEntry) => {
     setResult(entry.result);
@@ -208,6 +209,7 @@ export function useScanner() {
     loadingStep,
     isGeneratingPDF,
     fileInputRef,
+    cameraInputRef,
     handleUpload,
     removeImage,
     analyzePrescription,

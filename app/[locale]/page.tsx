@@ -18,6 +18,7 @@ export default function Home() {
     loadingStep,
     isGeneratingPDF,
     fileInputRef,
+    cameraInputRef,
     handleUpload,
     removeImage,
     analyzePrescription,
@@ -41,6 +42,7 @@ export default function Home() {
             <ScannerUploader
               image={image}
               fileInputRef={fileInputRef}
+              cameraInputRef={cameraInputRef}
               onUpload={handleUpload}
               onRemove={removeImage}
             />

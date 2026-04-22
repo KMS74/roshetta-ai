@@ -33,7 +33,9 @@
     "aiPoweredDesc": "State-of-the-art visual reasoning for medical handwriting.",
     "heroPill": "AI-driven prescription intelligence",
     "prescriptionImageAlt": "Uploaded prescription image",
-    "removeImage": "Remove image"
+    "removeImage": "Remove image",
+    "takePhoto": "Take Photo",
+    "uploadFile": "Upload Photo"
   },
   "Insights": {
     "medications": "Extracted Medications",
