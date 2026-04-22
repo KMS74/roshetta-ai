@@ -96,8 +96,8 @@ const getStyles = (isRtl: boolean) => {
 
   return StyleSheet.create({
     page: {
-      paddingTop: 36,
-      paddingBottom: 44,
+      paddingTop: 40,
+      paddingBottom: 48,
       paddingHorizontal: 40,
       backgroundColor: BRAND.bg,
       fontFamily: f(false),
@@ -107,16 +107,16 @@ const getStyles = (isRtl: boolean) => {
       top: 0,
       left: 0,
       right: 0,
-      height: 5,
+      height: 8,
       backgroundColor: BRAND.teal,
     },
     sheet: {
       flex: 1,
       backgroundColor: BRAND.white,
-      borderRadius: 14,
+      borderRadius: 16,
       borderWidth: 1,
       borderColor: BRAND.slate100,
-      padding: 28,
+      padding: 32,
       marginTop: 4,
     },
     header: {
@@ -125,8 +125,8 @@ const getStyles = (isRtl: boolean) => {
       justifyContent: 'space-between',
       alignItems: 'center',
       gap: 12,
-      marginBottom: 16,
-      paddingBottom: 14,
+      marginBottom: 20,
+      paddingBottom: 16,
       borderBottomWidth: 1,
       borderBottomColor: BRAND.slate100,
     },
@@ -167,7 +167,7 @@ const getStyles = (isRtl: boolean) => {
       alignSelf: 'stretch',
     },
     title: {
-      fontSize: 20,
+      fontSize: 24,
       fontFamily: f(true),
       color: BRAND.slate900,
       letterSpacing: -0.4,
@@ -179,7 +179,7 @@ const getStyles = (isRtl: boolean) => {
       fontFamily: f(false),
       color: BRAND.slate500,
       marginTop: 5,
-      lineHeight: 1.45,
+      lineHeight: 1.5,
       textAlign: textStart,
       width: '100%',
     },
@@ -199,10 +199,10 @@ const getStyles = (isRtl: boolean) => {
       overflow: 'hidden',
     },
     metaLine: {
-      fontSize: 8.5,
+      fontSize: 9.5,
       fontFamily: f(false),
       color: BRAND.slate500,
-      marginBottom: 3,
+      marginBottom: 4,
       textAlign: textStart,
       width: '100%',
     },
@@ -211,11 +211,11 @@ const getStyles = (isRtl: boolean) => {
       color: BRAND.slate700,
     },
     sectionTitle: {
-      fontSize: 11,
+      fontSize: 12,
       fontFamily: f(true),
       color: BRAND.teal,
       marginBottom: 12,
-      marginTop: 4,
+      marginTop: 8,
       paddingBottom: 6,
       borderBottomWidth: 2,
       borderBottomColor: BRAND.green,
@@ -225,11 +225,11 @@ const getStyles = (isRtl: boolean) => {
       width: '100%',
     },
     medCard: {
-      marginBottom: 14,
-      padding: 16,
+      marginBottom: 16,
+      padding: 20,
       borderRadius: 16,
       borderWidth: 1,
-      borderColor: BRAND.slate100,
+      borderColor: BRAND.slate200,
       backgroundColor: BRAND.white,
     },
     medTopRow: {
@@ -238,9 +238,9 @@ const getStyles = (isRtl: boolean) => {
       width: '100%',
     },
     medIconWrap: {
-      width: 40,
-      height: 40,
-      borderRadius: 14,
+      width: 44,
+      height: 44,
+      borderRadius: 12,
       backgroundColor: BRAND.tealTint10,
       alignItems: 'center',
       justifyContent: 'center',
@@ -249,7 +249,7 @@ const getStyles = (isRtl: boolean) => {
       marginLeft: isRtl ? 12 : 0,
     },
     medIcon: {
-      fontSize: 11,
+      fontSize: 12,
       fontFamily: f(true),
       color: BRAND.teal,
     },
@@ -260,7 +260,7 @@ const getStyles = (isRtl: boolean) => {
       minWidth: 0,
     },
     medName: {
-      fontSize: 13,
+      fontSize: 15,
       fontFamily: f(true),
       color: BRAND.slate900,
       textAlign: textStart,
@@ -283,7 +283,7 @@ const getStyles = (isRtl: boolean) => {
       flexShrink: 0,
     },
     medDosage: {
-      fontSize: 10.5,
+      fontSize: 11,
       fontFamily: f(true),
       color: BRAND.teal,
       textAlign: textStart,
@@ -292,16 +292,16 @@ const getStyles = (isRtl: boolean) => {
       minWidth: 0,
     },
     remindersBlock: {
-      marginTop: 10,
-      paddingTop: 10,
+      marginTop: 12,
+      paddingTop: 12,
       borderTopWidth: 1,
       borderTopColor: BRAND.slate100,
     },
     remindersLabel: {
-      fontSize: 7.5,
+      fontSize: 8.5,
       fontFamily: f(true),
       color: BRAND.slate400,
-      marginBottom: 6,
+      marginBottom: 8,
       textAlign: textStart,
       letterSpacing: isRtl ? 0 : 0.8,
       textTransform: labelTransform,
@@ -339,11 +339,11 @@ const getStyles = (isRtl: boolean) => {
       maxWidth: 88,
     },
     fieldLabel: {
-      fontSize: 7.5,
+      fontSize: 8.5,
       fontFamily: f(true),
       color: BRAND.slate400,
-      marginBottom: 4,
-      marginTop: 10,
+      marginBottom: 6,
+      marginTop: 12,
       textAlign: textStart,
       letterSpacing: isRtl ? 0 : 0.6,
       textTransform: labelTransform,
@@ -354,90 +354,90 @@ const getStyles = (isRtl: boolean) => {
       borderWidth: 1,
       borderColor: BRAND.slate100,
       borderRadius: 12,
-      padding: 10,
+      padding: 12,
     },
     medUsage: {
-      fontSize: 9.5,
+      fontSize: 10.5,
       fontFamily: f(false),
       color: BRAND.slate700,
-      lineHeight: 1.5,
+      lineHeight: 1.6,
       textAlign: textStart,
       width: '100%',
     },
     safetyLabel: {
-      fontSize: 7.5,
+      fontSize: 8.5,
       fontFamily: f(true),
       color: BRAND.amber800,
-      marginBottom: 4,
-      marginTop: 10,
+      marginBottom: 6,
+      marginTop: 12,
       textAlign: textStart,
       letterSpacing: isRtl ? 0 : 0.6,
       textTransform: labelTransform,
       width: '100%',
     },
     medTipBox: {
-      padding: 10,
+      padding: 12,
       backgroundColor: BRAND.amber50,
       borderRadius: 12,
       borderWidth: 1,
       borderColor: BRAND.amber100,
     },
     medTipText: {
-      fontSize: 8.5,
+      fontSize: 10,
       color: BRAND.amber950,
       fontFamily: f(false),
-      lineHeight: 1.45,
+      lineHeight: 1.6,
       textAlign: textStart,
       width: '100%',
     },
     interactionBox: {
-      marginBottom: 10,
-      padding: 12,
+      marginBottom: 12,
+      padding: 16,
       borderRadius: 14,
       borderWidth: 2,
     },
     interactionPill: {
-      fontSize: 7.5,
+      fontSize: 8.5,
       fontFamily: f(true),
-      marginBottom: 6,
+      marginBottom: 8,
       textAlign: textStart,
       letterSpacing: isRtl ? 0 : 0.85,
       textTransform: labelTransform,
       width: '100%',
     },
     interactionText: {
-      fontSize: 10,
-      fontFamily: f(true),
-      lineHeight: 1.5,
+      fontSize: 10.5,
+      fontFamily: f(false),
+      lineHeight: 1.6,
       textAlign: textStart,
       width: '100%',
     },
     footer: {
-      marginTop: 18,
-      paddingTop: 16,
+      marginTop: 24,
+      paddingTop: 20,
       borderTopWidth: 1,
       borderTopColor: BRAND.slate100,
     },
     disclaimerTitle: {
-      fontSize: 8,
+      fontSize: 9,
       fontFamily: f(true),
       color: BRAND.coral,
-      marginBottom: 5,
+      marginBottom: 8,
       textAlign: textStart,
       letterSpacing: isRtl ? 0 : 0.5,
       textTransform: labelTransform,
       width: '100%',
     },
     disclaimerText: {
-      fontSize: 8.5,
+      fontSize: 9.5,
       color: BRAND.slate500,
-      lineHeight: 1.55,
+      lineHeight: 1.6,
       textAlign: textStart,
       width: '100%',
     },
     footerTagline: {
-      marginTop: 12,
-      fontSize: 7.5,
+      marginTop: 16,
+      fontSize: 8.5,
       fontFamily: f(true),
       color: BRAND.tealLight,
       textAlign: 'center',
@@ -543,7 +543,7 @@ export const MedicalReport = ({
           <Text style={styles.sectionTitle}>{labels.extractedMeds}</Text>
 
           {medications.map((med, index) => (
-            <View key={index} style={styles.medCard}>
+            <View key={index} style={styles.medCard} wrap={false}>
               <View style={[styles.medTopRow, { flexDirection: isRtl ? 'row-reverse' : 'row' }]}>
                 <View style={styles.medIconWrap}>
                   <Text style={styles.medIcon}>Rx</Text>
@@ -597,6 +597,7 @@ export const MedicalReport = ({
                 return (
                   <View
                     key={i}
+                    wrap={false}
                     style={[
                       styles.interactionBox,
                       { backgroundColor: pal.boxBg, borderColor: pal.boxBorder },
@@ -618,7 +619,7 @@ export const MedicalReport = ({
             </View>
           ) : null}
 
-          <View style={styles.footer} minPresenceAhead={72}>
+          <View style={styles.footer} wrap={false}>
             <Text style={styles.disclaimerTitle}>{labels.disclaimerTitle}</Text>
             <Text style={[styles.disclaimerText, isRtl ? { direction: 'rtl' } : {}]}>{disclaimer}</Text>
             <Text style={styles.footerTagline}>{labels.footerTagline}</Text>
