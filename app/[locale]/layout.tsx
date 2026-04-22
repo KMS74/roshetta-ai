@@ -6,6 +6,8 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 
 const cairo = Cairo({
   subsets: ["arabic", "latin"],
@@ -59,7 +61,11 @@ export default async function LocaleLayout({
       >
         <ThemeProvider>
           <NextIntlClientProvider messages={messages}>
-            {children}
+            <div className="min-h-screen bg-brand-bg flex flex-col transition-colors duration-500">
+              <Header />
+              {children}
+              <Footer />
+            </div>
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>
