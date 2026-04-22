@@ -38,7 +38,7 @@ Roshetta.AI is a state-of-the-art AI-powered platform designed to bridge the gap
 | **Framework** | [Next.js 16](https://nextjs.org/) (App Router) |
 | **Language** | [TypeScript](https://www.typescriptlang.org/) |
 | **Styling** | [Tailwind CSS v4](https://tailwindcss.com/) & [Motion](https://motion.dev/) |
-| **AI Vision** | [Google Gemini 1.5 Flash](https://aistudio.google.com/) |
+| **AI Vision** | [Google Gemini 3 Flash](https://aistudio.google.com/) |
 | **Backend/DB** | [Supabase](https://supabase.com/) |
 | **PDF Engine** | [React-PDF](https://react-pdf.org/) |
 | **i18n** | [next-intl](https://next-intl-docs.vercel.app/) |
