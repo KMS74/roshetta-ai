@@ -14,7 +14,7 @@
 
 Roshetta.AI is a state-of-the-art AI-powered platform designed to bridge the gap between complex medical handwriting and patient understanding. Leveraging **Google's Gemini 3 Flash Vision** model, it instantly translates handwritten prescriptions into clear, structured, and actionable medical summaries.
 
-### 🌐 [Visit App (Live)](https://roshetta.ai)
+### 🌐 [Visit App (Live)](https://roshetta-ai.vercel.app)
 
 ---
 
