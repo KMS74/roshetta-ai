@@ -4,8 +4,8 @@ import { GoogleGenAI, Type } from "@google/genai";
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
 // The new @google/genai SDK initializes with an options object
-const client = GEMINI_API_KEY 
-  ? new GoogleGenAI({ apiKey: GEMINI_API_KEY }) 
+const client = GEMINI_API_KEY
+  ? new GoogleGenAI({ apiKey: GEMINI_API_KEY })
   : null;
 
 const ROSHETTA_PROMPT = `
@@ -28,16 +28,35 @@ You are "Roshetta.AI" (روشتة.ذكاء), a world-class digital pharmacist po
    - Evaluate all medications for potential clinical interactions.
    - Set severity to "High", "Medium", or "Low".
    - Provide a clear explanation of the risk and recommended action in the requested language.
-5. **Localization**:
-   - Respond in the language of the provided locale (Arabic or English).
-   - For Arabic, use a warm, reassuring, and professional Egyptian tone.
+5. **Medication Pricing (Egyptian Market)**:
+    - Provide an **approximate price** (as of your knowledge cutoff or available data) for medications in Egypt.
+    - **Disclaimer**: In the root 'disclaimer' field, you MUST include a note that "Prices are estimates and may not reflect current market rates" in the appropriate language, along with the mandatory medical disclaimer.
+    - **Accuracy**: If real-time accuracy is required, the system should ideally call an external pricing API. If you cannot determine a price with reasonable confidence, you MUST omit the \`estimatedPrice\` field or set it to null.
+    - **Format**: \`estimatedPrice\` must be an object: \`{ "price": number, "currency": "EGP" }\`.
+    - **Example**: \`estimatedPrice: { "price": 97, "currency": "EGP" }\`. Be precise with concentrations and pack sizes.
+    - Always set currency to "EGP".
+6. **Egyptian Alternatives (IMPORTANT — Always provide when available)**:
+    - For EVERY imported or branded medication, you MUST suggest up to 3 locally manufactured Egyptian generic alternatives. This is a critical feature for Egyptian patients who need affordable options.
+    - **Always search your knowledge** for Egyptian-made generics with the same active ingredient and strength.
+    - For each alternative provide:
+        - **name**: The exact Egyptian brand name (e.g., "Hibiotic" instead of "Augmentin", "Cetal" instead of "Panadol", "Antinal" instead of "Ercefuryl").
+        - **manufacturer**: The Egyptian pharmaceutical company (e.g., "Amoun Pharmaceutical", "EIPICO", "Pharco", "EVA Pharma", "Sedico", "GlaxoSmithKline Egypt", "Medical Union Pharmaceuticals", "Memphis Pharma", "Kahira Pharma", "Delta Pharma", "Nile Pharma", "Marcyrl Pharma").
+        - **estimatedPrice**: An object with the approximate \`price\` (number) and \`currency\` ("EGP") for this alternative. Omit if uncertain.
+        - **note**: Clearly state the active ingredient match (e.g., "نفس المادة الفعالة: أموكسيسيللين + كلافيولانيك أسيد 1 جم" or "Same active ingredient: Amoxicillin/Clavulanate 1g").
+    - If the medication IS already a local Egyptian product, include one entry with the same name and note: "هذا منتج مصري محلي بالفعل" / "This is already a local Egyptian product".
+    - Only return an empty array if there genuinely are no Egyptian-made alternatives (very rare for common medications).
+    - **Prioritize the cheapest alternatives first** in the array.
+7. **Localization**:
+    - Respond in the language of the provided locale (Arabic or English).
+    - For Arabic, use a warm, reassuring, and professional Egyptian tone.
 
 # Summary Field
-Provide a "summary" field that briefly describes the overall purpose of the prescription (e.g., "Prescription for seasonal allergy and cough" or "مجموعة أدوية لعلاج نزلات البرد والاحتقان").
+Provide a "summary" field that briefly describes the overall purpose of the prescription.
 
-# Disclaimer
-Mandatory Arabic ending: "هذا التحليل بالذكاء الاصطناعي للمساعدة فقط. يجب التأكد من الجرعات مع الصيدلي عند شراء الدواء."
-Mandatory English ending: "This AI analysis is for assistance only. Dosages must be confirmed with a pharmacist when purchasing the medication."
+# Disclaimer Field
+In the "disclaimer" field of the JSON:
+- Mandatory Arabic: "هذا التحليل بالذكاء الاصطناعي للمساعدة فقط. يجب التأكد من الجرعات مع الصيدلي عند شراء الدواء. الأسعار استرشادية وقد لا تعكس أسعار السوق الحالية."
+- Mandatory English: "This AI analysis is for assistance only. Dosages must be confirmed with a pharmacist. Prices are estimates and may not reflect current market rates."
 
 # Output Format
 Return a valid JSON object following the defined schema.
@@ -67,6 +86,36 @@ const schema = {
               required: ["time", "label"],
             },
           },
+          estimatedPrice: {
+            type: Type.OBJECT,
+            properties: {
+              price: { type: Type.NUMBER },
+              currency: { type: Type.STRING },
+            },
+            required: ["price", "currency"],
+            nullable: true,
+          },
+          egyptianAlternatives: {
+            type: Type.ARRAY,
+            items: {
+              type: Type.OBJECT,
+              properties: {
+                name: { type: Type.STRING },
+                manufacturer: { type: Type.STRING },
+                estimatedPrice: {
+                  type: Type.OBJECT,
+                  properties: {
+                    price: { type: Type.NUMBER },
+                    currency: { type: Type.STRING },
+                  },
+                  required: ["price", "currency"],
+                  nullable: true,
+                },
+                note: { type: Type.STRING },
+              },
+              required: ["name", "manufacturer", "note"],
+            },
+          },
         },
         required: ["name", "dosage", "usage", "tip", "reminders"],
       },
@@ -91,7 +140,10 @@ const schema = {
  * Analyzes an image of a prescription using Gemini AI.
  * This function should ONLY be called on the server.
  */
-export async function analyzePrescriptionImage(base64Image: string, locale: string = 'en') {
+export async function analyzePrescriptionImage(
+  base64Image: string,
+  locale: string = "en",
+) {
   if (!client) {
     throw new Error("Gemini API key is not configured.");
   }
@@ -100,7 +152,7 @@ export async function analyzePrescriptionImage(base64Image: string, locale: stri
 
   // The new @google/genai SDK uses client.models.generateContent directly
   const response = await client.models.generateContent({
-    model: "gemini-3-flash-preview", 
+    model: "gemini-3-flash-preview",
     contents: [
       { text: prompt },
       {

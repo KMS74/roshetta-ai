@@ -64,7 +64,19 @@
     "copyResults": "Copy Results",
     "searchWeb": "Search Info",
     "copied": "Copied to clipboard!",
-    "sharingText": "Check out my decoded prescription from Roshetta-AI:\n\n"
+    "sharingText": "Check out my decoded prescription from Roshetta-AI:\n\n",
+    "estimatedPrice": "Estimated Price",
+    "priceRange": "EGP {price}",
+    "egyptianAlternatives": "Egyptian Alternatives",
+    "alternativesHint": "Locally manufactured options with the same active ingredient",
+    "manufacturerLabel": "by {manufacturer}",
+    "savingsLabel": "Save up to EGP {amount}",
+    "noAlternatives": "No local alternatives identified",
+    "priceDisclaimer": "Prices are AI-estimated and may vary between pharmacies",
+    "showPricing": "Pricing & Alternatives",
+    "hidePricing": "Hide Pricing",
+    "searchAlternative": "Search",
+    "localProduct": "Local Product"
   },
   "Report": {
     "title": "Roshetta.AI Report",
@@ -81,7 +93,11 @@
     "dateLabel": "Date",
     "timeLabel": "Time",
     "summaryLabel": "Medical Summary",
-    "footerTagline": "Roshetta.AI · AI-assisted analysis only. Always confirm with a licensed pharmacist or physician."
+    "footerTagline": "Roshetta.AI · AI-assisted analysis only. Always confirm with a licensed pharmacist or physician.",
+    "pricingSection": "Pricing & Egyptian Alternatives",
+    "estimatedPriceLabel": "Est. Price",
+    "alternativesLabel": "Local Alternatives",
+    "pricingDisclaimer": "Prices are AI-estimated and may vary"
   },
   "Loading": {
     "parsingImage": "Optimizing image...",

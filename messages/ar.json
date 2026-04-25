@@ -64,7 +64,19 @@
     "copyResults": "نسخ التحليل",
     "searchWeb": "بحث عن الدواء",
     "copied": "تم النسخ!",
-    "sharingText": "إليك تحليل روشتتي بواسطة Roshetta-AI:\n\n"
+    "sharingText": "إليك تحليل روشتتي بواسطة Roshetta-AI:\n\n",
+    "estimatedPrice": "السعر التقديري",
+    "priceRange": "{price} ج.م",
+    "egyptianAlternatives": "البدائل المصرية",
+    "alternativesHint": "بدائل محلية الصنع بنفس المادة الفعالة",
+    "manufacturerLabel": "إنتاج {manufacturer}",
+    "savingsLabel": "وفّر حتى {amount} ج.م",
+    "noAlternatives": "لم يتم تحديد بدائل محلية",
+    "priceDisclaimer": "الأسعار تقديرية بالذكاء الاصطناعي وقد تختلف بين الصيدليات",
+    "showPricing": "الأسعار والبدائل",
+    "hidePricing": "إخفاء الأسعار",
+    "searchAlternative": "بحث",
+    "localProduct": "منتج محلي"
   },
   "Report": {
     "title": "تقرير Roshetta.AI",
@@ -81,7 +93,11 @@
     "dateLabel": "التاريخ",
     "timeLabel": "الوقت",
     "summaryLabel": "ملخص الحالة",
-    "footerTagline": "Roshetta.AI · تحليل بمساعدة الذكاء الاصطناعي فقط. يُرجى دائمًا التأكد مع صيدلي أو طبيب مرخّص."
+    "footerTagline": "Roshetta.AI · تحليل بمساعدة الذكاء الاصطناعي فقط. يُرجى دائمًا التأكد مع صيدلي أو طبيب مرخّص.",
+    "pricingSection": "الأسعار والبدائل المصرية",
+    "estimatedPriceLabel": "السعر التقديري",
+    "alternativesLabel": "البدائل المحلية",
+    "pricingDisclaimer": "الأسعار تقديرية وقد تختلف"
   },
   "Loading": {
     "parsingImage": "تحسين جودة الصورة...",

@@ -391,6 +391,74 @@ const getStyles = (isRtl: boolean) => {
       textAlign: textStart,
       width: '100%',
     },
+    pricingSection: {
+      marginTop: 12,
+      paddingTop: 12,
+      borderTopWidth: 1,
+      borderTopColor: BRAND.slate100,
+    },
+    pricingLabel: {
+      fontSize: 8.5,
+      fontFamily: f(true),
+      color: '#047857',
+      marginBottom: 6,
+      textAlign: textStart,
+      letterSpacing: isRtl ? 0 : 0.6,
+      textTransform: labelTransform,
+      width: '100%',
+    },
+    priceBox: {
+      backgroundColor: '#ecfdf5',
+      borderWidth: 1,
+      borderColor: '#a7f3d0',
+      borderRadius: 10,
+      paddingVertical: 8,
+      paddingHorizontal: 12,
+      marginBottom: 8,
+    },
+    priceText: {
+      fontSize: 14,
+      fontFamily: f(true),
+      color: '#065f46',
+      textAlign: textStart,
+    },
+    altRow: {
+      flexDirection: isRtl ? 'row-reverse' : 'row',
+      alignItems: 'flex-start',
+      marginBottom: 6,
+      padding: 8,
+      borderRadius: 8,
+      borderWidth: 1,
+      borderColor: BRAND.slate100,
+      backgroundColor: BRAND.slate50,
+    },
+    altName: {
+      fontSize: 10,
+      fontFamily: f(true),
+      color: BRAND.slate900,
+      textAlign: textStart,
+    },
+    altDetail: {
+      fontSize: 8.5,
+      fontFamily: f(false),
+      color: BRAND.slate500,
+      textAlign: textStart,
+      marginTop: 2,
+    },
+    altPrice: {
+      fontSize: 9,
+      fontFamily: f(true),
+      color: '#047857',
+      textAlign: textStart,
+      marginTop: 2,
+    },
+    pricingDisclaimer: {
+      fontSize: 7.5,
+      fontFamily: f(false),
+      color: BRAND.slate400,
+      marginTop: 6,
+      textAlign: textStart,
+    },
     interactionBox: {
       marginBottom: 12,
       padding: 16,
@@ -447,12 +515,26 @@ const getStyles = (isRtl: boolean) => {
   });
 };
 
+interface PriceEstimatePDF {
+  price: number;
+  currency: string;
+}
+
+interface EgyptianAlternativePDF {
+  name: string;
+  manufacturer: string;
+  estimatedPrice: PriceEstimatePDF;
+  note: string;
+}
+
 interface Medication {
   name: string;
   dosage: string;
   usage: string;
   tip: string;
   reminders: { time: string; label: string }[];
+  estimatedPrice?: PriceEstimatePDF;
+  egyptianAlternatives?: EgyptianAlternativePDF[];
 }
 
 interface Interaction {
@@ -484,6 +566,10 @@ interface MedicalReportProps {
     severityDisplayMedium: string;
     severityDisplayLow: string;
     summaryLabel: string;
+    pricingSection: string;
+    estimatedPriceLabel: string;
+    alternativesLabel: string;
+    pricingDisclaimer: string;
   };
 }
 
@@ -599,6 +685,43 @@ export const MedicalReport = ({
                     <Text style={styles.medTipText}>{med.tip}</Text>
                   </View>
                 </>
+              ) : null}
+
+              {/* Pricing & Alternatives Section */}
+              {(med.estimatedPrice || (med.egyptianAlternatives && med.egyptianAlternatives.length > 0)) ? (
+                <View style={styles.pricingSection}>
+                  <Text style={styles.pricingLabel}>{labels.pricingSection}</Text>
+
+                  {med.estimatedPrice && med.estimatedPrice.price > 0 ? (
+                    <View style={styles.priceBox}>
+                      <Text style={styles.priceText}>
+                        {labels.estimatedPriceLabel}: {med.estimatedPrice.currency} {med.estimatedPrice.price}
+                      </Text>
+                    </View>
+                  ) : null}
+
+                  {med.egyptianAlternatives && med.egyptianAlternatives.length > 0 ? (
+                    <View style={{ marginTop: 4 }}>
+                      <Text style={[styles.pricingLabel, { marginTop: 4, marginBottom: 8 }]}>{labels.alternativesLabel}</Text>
+                      {med.egyptianAlternatives.map((alt, ai) => (
+                        <View key={ai} style={styles.altRow}>
+                          <View style={{ flexGrow: 1, flexShrink: 1, flexBasis: 0, minWidth: 0 }}>
+                            <Text style={styles.altName}>{alt.name}</Text>
+                            <Text style={styles.altDetail}>{alt.manufacturer}</Text>
+                            {alt.note ? <Text style={styles.altDetail}>{alt.note}</Text> : null}
+                          </View>
+                          <View style={{ flexShrink: 0, alignItems: isRtl ? 'flex-start' : 'flex-end' }}>
+                            <Text style={styles.altPrice}>
+                              {alt.estimatedPrice.currency} {alt.estimatedPrice.price}
+                            </Text>
+                          </View>
+                        </View>
+                      ))}
+                    </View>
+                  ) : null}
+
+                  <Text style={styles.pricingDisclaimer}>{labels.pricingDisclaimer}</Text>
+                </View>
               ) : null}
             </View>
           ))}
