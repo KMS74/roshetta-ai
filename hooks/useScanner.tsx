@@ -165,6 +165,10 @@ export function useScanner() {
         severityDisplayMedium: t('Insights.severityDisplayMedium'),
         severityDisplayLow: t('Insights.severityDisplayLow'),
         summaryLabel: t('Report.summaryLabel'),
+        pricingSection: t('Report.pricingSection'),
+        estimatedPriceLabel: t('Report.estimatedPriceLabel'),
+        alternativesLabel: t('Report.alternativesLabel'),
+        pricingDisclaimer: t('Report.pricingDisclaimer'),
       };
 
       const blob = await pdf(

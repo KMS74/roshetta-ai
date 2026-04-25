@@ -3,12 +3,26 @@ export interface MedicationReminder {
   label: string;
 }
 
+export interface PriceEstimate {
+  price: number;
+  currency: string; // "EGP"
+}
+
+export interface EgyptianAlternative {
+  name: string;
+  manufacturer: string;
+  estimatedPrice: PriceEstimate;
+  note: string; // e.g., "Same active ingredient (Amoxicillin)"
+}
+
 export interface Medication {
   name: string;
   dosage: string;
   usage: string;
   tip: string;
   reminders: MedicationReminder[];
+  estimatedPrice?: PriceEstimate;
+  egyptianAlternatives?: EgyptianAlternative[];
 }
 
 export interface Interaction {

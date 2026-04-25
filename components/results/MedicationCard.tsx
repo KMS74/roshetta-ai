@@ -5,6 +5,7 @@ import { AlertTriangle, Clock, Stethoscope, ExternalLink } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
 import { formatTime12h } from '@/lib/format-time';
 import type { Medication } from '@/lib/types/prescription';
+import { MedicationPricing } from './MedicationPricing';
 
 type MedicationCardProps = {
   medication: Medication;
@@ -40,6 +41,13 @@ export function MedicationCard({ medication, index }: MedicationCardProps) {
                   <Clock className="h-4 w-4 shrink-0" aria-hidden />
                   <span>{medication.dosage}</span>
                 </div>
+
+                {/* Inline price badge */}
+                {medication.estimatedPrice && medication.estimatedPrice.price > 0 && (
+                  <span className="inline-flex items-center gap-1 rounded-lg bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200/60 dark:border-emerald-700/30 px-2 py-0.5 text-[11px] font-black tabular-nums text-emerald-700 dark:text-emerald-300">
+                    💊 {medication.estimatedPrice.currency} {medication.estimatedPrice.price}
+                  </span>
+                )}
                 
                 <a
                   href={`https://www.google.com/search?q=${encodeURIComponent(medication.name + ' medication uses')}`}
@@ -105,6 +113,12 @@ export function MedicationCard({ medication, index }: MedicationCardProps) {
               </div>
             </div>
           ) : null}
+
+          <MedicationPricing
+            estimatedPrice={medication.estimatedPrice}
+            egyptianAlternatives={medication.egyptianAlternatives}
+            medicationName={medication.name}
+          />
         </div>
       </div>
     </motion.article>
